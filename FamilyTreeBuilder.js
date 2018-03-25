@@ -110,6 +110,8 @@ function CreateNonExistingAncestors(familyTree) {
             anne.PrintPerson = PrintPerson;
             anne.Adi = person.AnaAdi;
             anne.Children = [person];
+            anne.Cinsiyet = "K";
+            // TODO: "nin annesi"
             anne.YakinlikDerecesi = person.YakinlikDerecesi + " annesi";
             person.Anne = anne;
             newMembers.push(anne);
@@ -119,6 +121,8 @@ function CreateNonExistingAncestors(familyTree) {
             baba.PrintPerson = PrintPerson;
             baba.Adi = person.BabaAdi;
             baba.Children = [person];
+            baba.Cinsiyet = "E";
+            // TODO: "nin babası"
             baba.YakinlikDerecesi = person.YakinlikDerecesi + " babası";
             person.Baba = baba;
             newMembers.push(baba);
