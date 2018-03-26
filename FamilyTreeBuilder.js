@@ -8,17 +8,8 @@ function BuildFamilyTree(treeData) {
         return;
     }
     var lines = CleanArray(treeData.split("\n"));
-    var lineIndex = -1;
-    for (let i = 0; i < lines.length; i++) {
-        if (lines[i].startsWith("Sıra")) {
-            lineIndex = i;
-            break;
-        }
-    }
-    if (lineIndex == -1) {
-        return;
-    }
 
+    let lineIndex = -1;
     // next line will start with a person
     while (lineIndex < lines.length - 1) {
         var line = lines[++lineIndex];
@@ -29,42 +20,46 @@ function BuildFamilyTree(treeData) {
         if (parts.length == 0) {
             continue;
         }
+        let lineNo = parseInt(parts[0]);
+        if (isNaN(lineNo)) {
+            continue;
+        }
 
         var person = new Object();
         person.Children = [];
         person.PrintPerson = PrintPerson;
-        person.Sira = parts[0];
-        person.Cinsiyet = parts[1];
-        person.YakinlikDerecesi = parts[2];
-        person.Adi = parts[3];
-        person.Soyadi = parts[4];
-        person.BabaAdi = parts[5];
-        person.AnaAdi = parts[6];
-        person.DogumYeri = parts[7];
+        person.Sira = lineNo;
+        person.Cinsiyet = parts[1].trim();
+        person.YakinlikDerecesi = parts[2].trim();
+        person.Adi = parts[3].trim();
+        person.Soyadi = parts[4].trim();
+        person.BabaAdi = parts[5].trim();
+        person.AnaAdi = parts[6].trim();
+        person.DogumYeri = parts[7].trim();
 
         // 01/07/1837	Sivas/
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.DogumTarihi = parts[0];
-        person.Il = parts[1];
+        person.DogumTarihi = parts[0].trim();
+        person.Il = parts[1].trim();
 
         // Divriği /
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.Ilce = parts[0];
+        person.Ilce = parts[0].trim();
 
         // AŞAĞIHAMAM MAHALLESİ    4 - 24 - 5  Dul Sağ
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.MahalleKoy = parts[0];
-        person.CiltHaneBirey = parts[1];
-        person.MedeniHali = parts[2];
-        person.Durumu = parts[3];
+        person.MahalleKoy = parts[0].trim();
+        person.CiltHaneBirey = parts[1].trim();
+        person.MedeniHali = parts[2].trim();
+        person.Durumu = parts[3].trim();
 
         // -
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.Durumu += parts[0];
+        person.Durumu += parts[0].trim();
 
         personList.push(person);
     }
