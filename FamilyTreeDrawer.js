@@ -6,7 +6,6 @@ function DrawFamilyTree(eGovernmentText) {
     
     // Bugs / known issues:
     // 1. Other spouses is not working
-    // 2. Shape size don't match with the text
     // 3. Fixed size svg
     // 4. Coordinates of "Oğlunun annesi"
     // 5. "oğlunun annesi", "babasının babası" instead of "oğlu annesi", "babası babası"
@@ -14,7 +13,6 @@ function DrawFamilyTree(eGovernmentText) {
     // 7. No tooltips yet
     // 8. General look and feel
     // 9. Derived people should look like different than the people existing in the list
-    // 10. "undefined" as surname
 
     let familyTree = BuildFamilyTree(eGovernmentText);
 
@@ -23,14 +21,14 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Initialize Raphäel
     // TODO: Dynamic width and height
-    var r = Raphael("holder", 5000, 2000);
+    var r = Raphael("holder", 5000, 1000);
 
     // Draw texts and determine the size of each box
     var shapes = [], texts = [];
     let maxWidth = 0;
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
-        let nextText = r.text(100,100,member.Adi + " " + member.Soyadi);
+        let nextText = r.text(100, 100, GetFullName(member));
         texts.push(nextText);
         
         let nextWidth = nextText.getBBox().width;
@@ -43,9 +41,9 @@ function DrawFamilyTree(eGovernmentText) {
     const boxHeight = 40;
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
-        let memberX = member.X * (maxWidth + 30) + 100;
-        let memberY = member.Y * (boxHeight + 30) + 100;
-        let nextShape = r.ellipse(memberX, memberY, 30, 20);
+        let memberX = member.X * (maxWidth + 40) + 100;
+        let memberY = member.Y * (boxHeight + 40) + 100;
+        let nextShape = r.rect(memberX - maxWidth / 2 - 5, memberY - boxHeight / 2, maxWidth + 10, boxHeight, 10);
         shapes.push(nextShape);
         texts[i].attr({
             x: memberX,
@@ -108,7 +106,7 @@ function FindCoordinates(familyTree) {
     let nextXIndex = 0;
     
     // find descendants who don't have any children
-    var people = familyTree.filter(x => (x.Children == undefined || x.Children.length == 0) && 
+    var people = familyTree.filter(x => (x.Children === undefined || x.Children.length == 0) && 
         (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı")));
 
     // use the people as a stack. Depth-first traverse, first fathers until no more father is to be found, 
@@ -116,7 +114,7 @@ function FindCoordinates(familyTree) {
     while (people.length > 0) {
         let nextPerson = people.pop();
 
-        if (nextPerson.Baba != undefined) {
+        if (nextPerson.Baba !== undefined) {
             if (nextPerson.Baba.IsVisited == true) {
                 nextPerson.X = nextPerson.Baba.X;
                 nextPerson.Y = nextPerson.Baba.Y + 1;
@@ -146,7 +144,7 @@ function AddSpouses(person, people) {
     switch (person.Cinsiyet) {
         case "E":
             person.Children.forEach(child => {
-                if (child.Anne != undefined && !child.Anne.IsVisited) {
+                if (child.Anne !== undefined && !child.Anne.IsVisited) {
                     people.push(child.Anne);
                 }
             });
@@ -154,7 +152,7 @@ function AddSpouses(person, people) {
 
         case "K":
             person.Children.forEach(child => {
-                if (child.Baba != undefined && !child.Baba.IsVisited) {
+                if (child.Baba !== undefined && !child.Baba.IsVisited) {
                     people.push(child.Baba);
                 }
             });
@@ -165,7 +163,7 @@ function AddSpouses(person, people) {
     }
 
     // Add spouses not reachable by the children
-    if (person.OtherSpouses != undefined) {
+    if (person.OtherSpouses !== undefined) {
         person.OtherSpouses.forEach(spouse => {
             if (!spouse.IsVisited) {
                 people.push(spouse);
@@ -209,4 +207,14 @@ function SetYIndex(person, numAncestorLayers) {
         let numWords = person.YakinlikDerecesi.split(" ").length;
         person.Y = numAncestorLayers + 1 + numWords;
     }
+}
+
+/**
+ * Returns the full name of a given person
+ * @param {Object} person Person whose full name is required
+ */
+function GetFullName(person) {
+    var firstName = person.Adi === undefined ? "-" : person.Adi;
+    var lastName = person.Soyadi === undefined ? "" : person.Soyadi;
+    return lastName == "" ? firstName : firstName + " " + lastName;
 }

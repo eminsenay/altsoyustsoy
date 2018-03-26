@@ -100,7 +100,7 @@ function CreateNonExistingAncestors(familyTree) {
     var newMembers = [];
     for (let i = 0; i < familyTree.length; i++) {
         const person = familyTree[i];
-        if (person.Anne == undefined || !IsSimilar(person.Anne.Adi, person.AnaAdi)) {
+        if (person.Anne === undefined || !IsSimilar(person.Anne.Adi, person.AnaAdi)) {
             let anne = new Object();
             anne.PrintPerson = PrintPerson;
             anne.Adi = person.AnaAdi;
@@ -111,7 +111,7 @@ function CreateNonExistingAncestors(familyTree) {
             person.Anne = anne;
             newMembers.push(anne);
         }
-        if (person.Baba == undefined || !IsSimilar(person.Baba.Adi, person.BabaAdi)) {
+        if (person.Baba === undefined || !IsSimilar(person.Baba.Adi, person.BabaAdi)) {
             let baba = new Object();
             baba.PrintPerson = PrintPerson;
             baba.Adi = person.BabaAdi;
@@ -175,7 +175,7 @@ function BuildFamilyRelations(familyTree) {
 
     // start
     var own = familyTree.find(x => x.YakinlikDerecesi == "kendisi");
-    if (own == undefined) {
+    if (own === undefined) {
         return;
     }
     BuildAncestors(own, familyTree);
@@ -300,8 +300,8 @@ function BuildDescendants(person, familyTree) {
  */
 function BuildOtherSpouses(familyTree) {
     familyTree.forEach(person => {
-        if ((person.Children == undefined || person.Children.length == 0) &&
-        person.Baba == undefined && person.Anne == undefined) {
+        if ((person.Children === undefined || person.Children.length == 0) &&
+        person.YakinlikDerecesi.includes("annesi") || person.YakinlikDerecesi.includes("babası")) {
             // Link with YakınlıkDerecesi
             let lastSpaceIndex = person.YakinlikDerecesi.lastIndexOf(" ");
             if (lastSpaceIndex == -1) {
@@ -325,7 +325,11 @@ function BuildOtherSpouses(familyTree) {
                     continue;
                 }
 
-                nextPerson.OtherSpouses.push(person);
+                if (nextPerson.OtherSpouses === undefined) {
+                    nextPerson.OtherSpouses = [person];
+                } else {
+                    nextPerson.OtherSpouses.push(person);
+                }
             }
         }
     });
