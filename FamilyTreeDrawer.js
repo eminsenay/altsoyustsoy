@@ -5,14 +5,11 @@
 function DrawFamilyTree(eGovernmentText) {
     
     // Bugs / known issues:
-    // 1. Other spouses is not working
-    // 3. Fixed size svg
-    // 4. Coordinates of "Oğlunun annesi"
-    // 5. "oğlunun annesi", "babasının babası" instead of "oğlu annesi", "babası babası"
-    // 6. No connections yet
-    // 7. No tooltips yet
-    // 8. General look and feel
-    // 9. Derived people should look like different than the people existing in the list
+    // 1. Fixed size svg
+    // 2. Coordinates of "Oğlunun annesi"
+    // 3. No tooltips yet
+    // 4. General look and feel
+    // 5. Derived people should look like different than the people existing in the list
 
     let familyTree = BuildFamilyTree(eGovernmentText);
 
@@ -21,7 +18,7 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Initialize Raphäel
     // TODO: Dynamic width and height
-    var r = Raphael("holder", 5000, 1000);
+    var r = Raphael("holder", 7000, 1000);
 
     // Draw texts and determine the size of each box
     var shapes = [], texts = [];
@@ -49,51 +46,13 @@ function DrawFamilyTree(eGovernmentText) {
             x: memberX,
             y: memberY
         });
+        member.Shape = nextShape;
     }
-
 
     // Draw connections between boxes
+    DrawConnections(familyTree, r);
+
     // Add tooltip
-
-
-    /*
-    var connections = [];
-    var shapes = [
-        r.ellipse(190, 100, 30, 20),
-        r.rect(290, 80, 60, 40, 10),
-        r.rect(290, 180, 60, 40, 2),
-        r.ellipse(450, 100, 20, 20)
-    ];
-
-    var texts = [
-        r.text(190, 100, "OneOneOneOneOneOneasd"),
-        r.text(320, 100, "Two"),
-        r.text(320, 200, "Three"),
-        r.text(450, 100, "Four")
-    ];
-
-    for (i = 0, ii = shapes.length; i < ii; i++) {
-
-        let maxWidth = Math.max(shapes[i].getBBox().width, texts[i].getBBox().width);
-        this.alert(maxWidth);
-        //shapes[i].attr(attr1);
-        color = Raphael.getColor();
-        tempS = shapes[i].attr({
-            rx: maxWidth,
-            fill: color, stroke: color,
-            "fill-opacity": 0,
-            "stroke-width": 2, cursor: "move"
-        });
-        tempT = texts[i].attr({ fill: color, stroke: "none", "font-size": 15, cursor: "move" });
-        // shapes[i].drag(move, dragger, up);
-        // texts[i].drag(move, dragger, up);
-
-        // Associate the elements
-        tempS.pair = tempT;
-        tempT.pair = tempS;
-    }
-    */
-
 }
 
 /**
@@ -217,4 +176,41 @@ function GetFullName(person) {
     var firstName = person.Adi === undefined ? "-" : person.Adi;
     var lastName = person.Soyadi === undefined ? "" : person.Soyadi;
     return lastName == "" ? firstName : firstName + " " + lastName;
+}
+
+/**
+ * Draws connections between members of the family tree (parent/child, spouses)
+ * @param {Array} familyTree Family tree as an array. Each member of the family tree must have a "Shape" property which 
+ * corresponds to the related box in browser.
+ * @param {Object} r Raphael object
+ */
+function DrawConnections(familyTree, r) {
+    for (let i = 0; i < familyTree.length; i++) {
+        const member = familyTree[i];
+        let fatherFound = false;
+        let motherFound = false;
+        if (member.Baba !== undefined) {
+            fatherFound = true;
+            r.connection(member.Shape, member.Baba.Shape, "#000");
+            if (member.Baba.OtherSpouses !== undefined) {
+                member.Baba.OtherSpouses.forEach(spouse => {
+                    r.connection(member.Baba.Shape, spouse.Shape, "#000");
+                });
+            }
+        }
+        if (member.Anne !== undefined) {
+            motherFound = true;
+            if (!fatherFound) {
+                r.connection(member.Shape, member.Anne.Shape, "#000");
+            }
+            if (member.Anne.OtherSpouses !== undefined) {
+                member.Anne.OtherSpouses.forEach(spouse => {
+                    r.connection(member.Anne.Shape, spouse.Shape, "#000");
+                });
+            }
+        }
+        if (fatherFound && motherFound) {
+            r.connection(member.Baba.Shape, member.Anne.Shape, "#000");
+        }
+    }
 }

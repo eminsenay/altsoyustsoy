@@ -106,8 +106,7 @@ function CreateNonExistingAncestors(familyTree) {
             anne.Adi = person.AnaAdi;
             anne.Children = [person];
             anne.Cinsiyet = "K";
-            // TODO: "nin annesi"
-            anne.YakinlikDerecesi = person.YakinlikDerecesi + " annesi";
+            anne.YakinlikDerecesi = person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
             person.Anne = anne;
             newMembers.push(anne);
         }
@@ -117,8 +116,7 @@ function CreateNonExistingAncestors(familyTree) {
             baba.Adi = person.BabaAdi;
             baba.Children = [person];
             baba.Cinsiyet = "E";
-            // TODO: "nin babası"
-            baba.YakinlikDerecesi = person.YakinlikDerecesi + " babası";
+            baba.YakinlikDerecesi = person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
             person.Baba = baba;
             newMembers.push(baba);
         }
@@ -214,14 +212,18 @@ function BuildAncestors(person, familyTree) {
                 if (nextPerson.YakinlikDerecesi.startsWith(person.YakinlikDerecesi)) {
                     switch (words[words.length - 1]) {
                         case "babası":
-                            person.Baba = nextPerson;
-                            person.Baba.Children.push(person);
+                            if (IsSimilar(person.BabaAdi, nextPerson.Adi)) {
+                                person.Baba = nextPerson;
+                                person.Baba.Children.push(person);
+                            }
                             fatherFound = true;
                             BuildAncestors(nextPerson, familyTree);
                             break;
                         case "annesi":
-                            person.Anne = nextPerson;
-                            person.Anne.Children.push(person);
+                            if (IsSimilar(person.AnaAdi, nextPerson.Adi)) {
+                                person.Anne = nextPerson;
+                                person.Anne.Children.push(person);
+                            }
                             motherFound = true;
                             BuildAncestors(nextPerson, familyTree);
                             break;
@@ -301,7 +303,7 @@ function BuildDescendants(person, familyTree) {
 function BuildOtherSpouses(familyTree) {
     familyTree.forEach(person => {
         if ((person.Children === undefined || person.Children.length == 0) &&
-        person.YakinlikDerecesi.includes("annesi") || person.YakinlikDerecesi.includes("babası")) {
+            (person.YakinlikDerecesi.includes("annesi") || person.YakinlikDerecesi.includes("babası"))) {
             // Link with YakınlıkDerecesi
             let lastSpaceIndex = person.YakinlikDerecesi.lastIndexOf(" ");
             if (lastSpaceIndex == -1) {
@@ -333,4 +335,21 @@ function BuildOtherSpouses(familyTree) {
             }
         }
     });
+}
+
+/**
+ * Finds the possesive suffix with the buffer letter of a given string. 
+ * Assumption: String is one of the family tree relations
+ * @param {Object} str string whose possesive suffix is to be found.
+ */
+function GetPossessiveSuffix(str) {
+    if (str.endsWith("babası")) {
+        return "nın";
+    }
+    else if (str.endsWith("annesi")) {
+        return "nin";
+    }
+    else {
+        console.log("Unknown relation at FindPossessiveSuffix. String: " + str);
+    }
 }
