@@ -5,7 +5,6 @@
 function DrawFamilyTree(eGovernmentText) {
     
     // Bugs / known issues:
-    // 1. Fixed size svg
     // 3. No tooltips yet
     // 4. General look and feel
     // 5. Derived people should look like different than the people existing in the list
@@ -16,37 +15,65 @@ function DrawFamilyTree(eGovernmentText) {
     FindCoordinates(familyTree);
 
     // Initialize Raphäel
-    // TODO: Dynamic width and height
-    var r = Raphael("holder", 7000, 1000);
+    var r = Raphael("holder", 100, 100);
 
     // Draw texts and determine the size of each box
     var shapes = [], texts = [];
-    let maxWidth = 0;
+    let maxTextWidth = 0;
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
         let nextText = r.text(100, 100, GetFullName(member));
         texts.push(nextText);
         
         let nextWidth = nextText.getBBox().width;
-        if (nextWidth > maxWidth) {
-            maxWidth = nextWidth;
+        if (nextWidth > maxTextWidth) {
+            maxTextWidth = nextWidth;
         }
     }
     
     // Draw boxes and move texts
-    const boxHeight = 40;
+    /*
+    -  --------------         --------------
+    h  |<pl>text<pr>|<--hbs-->|<pl>text<pr>|
+    -  --------------         --------------
+       <--boxWidth-->
+    
+    h: box height
+    pl: padding left
+    pr: padding right
+    pl + pr = padding
+    hbs: horizontal box spacing
+    */
+    const boxHeight = 40, horizontalBoxSpacing = 30, verticalBoxSpacing = 40, padding = 10;
+    const boxWidth = maxTextWidth + padding;
+    let maxX = 0, maxY = 0;
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
-        let memberX = member.X * (maxWidth + 40) + 100;
-        let memberY = member.Y * (boxHeight + 40) + 100;
-        let nextShape = r.rect(memberX - maxWidth / 2 - 5, memberY - boxHeight / 2, maxWidth + 10, boxHeight, 10);
+        if (maxX < member.X) {
+            maxX = member.X;
+        }
+        if (maxY < member.Y) {
+            maxY = member.Y;
+        }
+        let textPosX = member.X * (maxTextWidth + horizontalBoxSpacing + padding) + boxWidth / 2 + 10;
+        let textPosY = member.Y * (boxHeight + verticalBoxSpacing) + boxHeight / 2 + 10;
+        // textPosX and textPosY are centered. Find the upper left corner of the box from this info.
+        let boxPosX = textPosX - boxWidth / 2;
+        let boxPosY = textPosY - boxHeight / 2;
+        let nextShape = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10);
         shapes.push(nextShape);
         texts[i].attr({
-            x: memberX,
-            y: memberY
+            x: textPosX,
+            y: textPosY
         });
         member.Shape = nextShape;
     }
+
+    // Resize the canvas
+    // X and Y start with 0. There are maxX and maxY horizontal/vertical spacings, maxX+1 and maxY+1 boxes.
+    r.setSize(maxX * (boxWidth + horizontalBoxSpacing) + boxWidth + 20, 
+        maxY * (boxHeight + verticalBoxSpacing) + boxHeight + 20);
+    //r.canvas.style.backgroundColor = "#F00";
 
     // Draw connections between boxes
     DrawConnections(familyTree, r);
