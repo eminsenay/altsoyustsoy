@@ -27,7 +27,6 @@ function BuildFamilyTree(treeData) {
 
         var person = new Object();
         person.Children = [];
-        person.PrintPerson = PrintPerson;
         person.Sira = lineNo;
         person.Cinsiyet = parts[1].trim();
         person.YakinlikDerecesi = parts[2].trim();
@@ -67,11 +66,6 @@ function BuildFamilyTree(treeData) {
     BuildFamilyRelations(personList); // only ancestors and descendants
     CreateNonExistingAncestors(personList);
     BuildOtherSpouses(personList); // non reachable ancestors
-
-    // var output = "";
-    // for (let i = 0; i < personList.length; i++) {
-    //     output += personList[i].PrintPerson() + "\n\n";
-    // }
     return personList;
 }
 
@@ -102,21 +96,21 @@ function CreateNonExistingAncestors(familyTree) {
         const person = familyTree[i];
         if (person.Anne === undefined || !IsSimilar(person.Anne.Adi, person.AnaAdi)) {
             let anne = new Object();
-            anne.PrintPerson = PrintPerson;
             anne.Adi = person.AnaAdi;
             anne.Children = [person];
             anne.Cinsiyet = "K";
-            anne.YakinlikDerecesi = person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
+            anne.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" : 
+                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
             person.Anne = anne;
             newMembers.push(anne);
         }
         if (person.Baba === undefined || !IsSimilar(person.Baba.Adi, person.BabaAdi)) {
             let baba = new Object();
-            baba.PrintPerson = PrintPerson;
             baba.Adi = person.BabaAdi;
             baba.Children = [person];
             baba.Cinsiyet = "E";
-            baba.YakinlikDerecesi = person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
+            baba.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" : 
+                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
             person.Baba = baba;
             newMembers.push(baba);
         }
@@ -145,22 +139,6 @@ function IsSimilar(name1, name2) {
         }
     }
     return numDifferences <= 1;
-}
-
-/**
- * Pretty print of a person
- */
-function PrintPerson() {
-    var output = "";
-    var propertyList = Object.getOwnPropertyNames(this);
-    for (let i = 0; i < propertyList.length; i++) {
-        const element = propertyList[i];
-        if (element == "PrintPerson") {
-            continue;
-        }
-        output += this[element] + "\n";
-    }
-    return output;
 }
 
 /**
@@ -343,11 +321,15 @@ function BuildOtherSpouses(familyTree) {
  * @param {Object} str string whose possesive suffix is to be found.
  */
 function GetPossessiveSuffix(str) {
-    if (str.endsWith("babası")) {
+    if (str.endsWith("babası") || str.endsWith("kızı")) {
         return "nın";
     }
     else if (str.endsWith("annesi")) {
         return "nin";
+    }
+    else if (str.endsWith("oğlu"))
+    {
+        return "nun";
     }
     else {
         console.log("Unknown relation at FindPossessiveSuffix. String: " + str);

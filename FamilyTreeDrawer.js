@@ -6,7 +6,6 @@ function DrawFamilyTree(eGovernmentText) {
     
     // Bugs / known issues:
     // 1. Fixed size svg
-    // 2. Coordinates of "Oğlunun annesi"
     // 3. No tooltips yet
     // 4. General look and feel
     // 5. Derived people should look like different than the people existing in the list
@@ -159,12 +158,12 @@ function SetYIndex(person, numAncestorLayers) {
         let numWords = person.YakinlikDerecesi.split(" ").length;
         person.Y = numAncestorLayers - numWords;
     }
-    else if (person.YakinlikDerecesi == "kendisi") {
-        person.Y = numAncestorLayers + 1;
+    else if (person.YakinlikDerecesi == "kendisi" || person.YakinlikDerecesi == "eşi") {
+        person.Y = numAncestorLayers;
     }
     else { // descendants
         let numWords = person.YakinlikDerecesi.split(" ").length;
-        person.Y = numAncestorLayers + 1 + numWords;
+        person.Y = numAncestorLayers + numWords;
     }
 }
 
