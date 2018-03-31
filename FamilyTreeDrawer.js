@@ -12,8 +12,7 @@ function DrawFamilyTree(eGovernmentText) {
     // Bugs / known issues:
     // 1. No tooltips yet
     // 2. General look and feel
-    // 3. Derived people should look like different than the people existing in the list
-    // 4. save as png --> https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif
+    // 3. save as png --> https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif
 
     /* global BuildFamilyTree */
     let familyTree = BuildFamilyTree(eGovernmentText);
