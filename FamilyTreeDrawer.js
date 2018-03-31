@@ -7,7 +7,6 @@ function DrawFamilyTree(eGovernmentText) {
     // Bugs / known issues:
     // 3. No tooltips yet
     // 4. General look and feel
-    // 5. Derived people should look like different than the people existing in the list
 
     let familyTree = BuildFamilyTree(eGovernmentText);
 
@@ -61,6 +60,10 @@ function DrawFamilyTree(eGovernmentText) {
         let boxPosX = textPosX - boxWidth / 2;
         let boxPosY = textPosY - boxHeight / 2;
         let nextShape = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10);
+        // show the members which don't appear at the original input table as dashed
+        if (member.Sira === undefined) {
+            nextShape.attr({"stroke-dasharray": ". " });
+        }
         shapes.push(nextShape);
         texts[i].attr({
             x: textPosX,
