@@ -10,7 +10,8 @@ Uses Raphäeljs for visualization.
 
 I'm not very fluent in Javascript, so don't be surprised if you see some awkward methods of doing things which are really easy with a different method.
 
-## Bugs / Known Issues 
+## TODOs & Bugs & Known Issues 
 
 1. General look and feel
 2. Save as png &rarr; <https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif>
+3. Age of the deceased family members at the tooltip
