@@ -1,3 +1,8 @@
+
+!function () {
+    this.BuildFamilyTree = BuildFamilyTree
+}();
+
 /**
  * Builds a family tree from the given e-Devlet alt soy - üst soy content.
  * @param {string} treeData Content of the e-Devlet page containing the family tree (select all - copy - paste)
@@ -73,13 +78,10 @@ function BuildFamilyTree(treeData) {
  * Removes all falsy values: undefined, null, 0, false, NaN and "" (empty string)
  * @param {Array} actual Array of strings
  */
-function CleanArray(actual) 
-{
+function CleanArray(actual) {
     var newArray = new Array();
-    for (var i = 0; i < actual.length; i++) 
-    {
-        if (actual[i]) 
-        {
+    for (var i = 0; i < actual.length; i++) {
+        if (actual[i]) {
             newArray.push(actual[i]);
         }
     }
@@ -99,7 +101,7 @@ function CreateNonExistingAncestors(familyTree) {
             anne.Adi = person.AnaAdi;
             anne.Children = [person];
             anne.Cinsiyet = "K";
-            anne.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" : 
+            anne.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
                 person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
             person.Anne = anne;
             newMembers.push(anne);
@@ -109,13 +111,13 @@ function CreateNonExistingAncestors(familyTree) {
             baba.Adi = person.BabaAdi;
             baba.Children = [person];
             baba.Cinsiyet = "E";
-            baba.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" : 
+            baba.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
                 person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
             person.Baba = baba;
             newMembers.push(baba);
         }
     }
-    newMembers.forEach(x=>familyTree.push(x));
+    newMembers.forEach(x => familyTree.push(x));
 }
 
 /**
@@ -327,8 +329,7 @@ function GetPossessiveSuffix(str) {
     else if (str.endsWith("annesi")) {
         return "nin";
     }
-    else if (str.endsWith("oğlu"))
-    {
+    else if (str.endsWith("oğlu")) {
         return "nun";
     }
     else {
