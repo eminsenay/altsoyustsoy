@@ -9,3 +9,9 @@ After displaying your family tree in a tabular form at the e-Government page, co
 Uses Raphäeljs for visualization. 
 
 I'm not very fluent in Javascript, so don't be surprised if you see some awkward methods of doing things which are really easy with a different method.
+
+## Bugs / Known Issues 
+
+1. No tooltips yet
+2. General look and feel
+3. Save as png &rarr; <https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif>
