@@ -6,53 +6,92 @@ var tooltipText, tooltipShape;
  * @param {string} text Text to be displayed at the tooltip
  * @param {number} x X coordinate of the tooltip shape
  * @param {number} y Y coordinate of the tooltip shape
- * @param {bool} topright if the tooltip bubble is at topright or bottomright
+ * @param {string} orientation One of the following: 
+ * "tr" (top right), "tl" (top left), "br" (bottom right), "bl" (bottom left)
+ * default: top right
  */
-function DrawTooltip(r, text, x, y, topright) {
+function DrawTooltip(r, text, x, y, width, height, orientation) {
+
+    // find out the coordinates of the tooltip and multipliers of the bubble according to the given orientation
+    let bubbleX;
+    let bubbleY;
+    let verticalMultiplier;
+    let horizontalMultiplier;
+    switch (orientation) {
+        case "tl":
+            verticalMultiplier = 1;
+            horizontalMultiplier = -1;
+            bubbleX = x + 2;
+            bubbleY = y + 2;
+            break;
+
+        case "tr":
+        default:
+            verticalMultiplier = 1;
+            horizontalMultiplier = 1;
+            bubbleX = x + width - 2;
+            bubbleY = y + 2;
+            break;
+
+        case "bl":
+            verticalMultiplier = -1;
+            horizontalMultiplier = -1
+            bubbleX = x + 2;
+            bubbleY = y + height - 2;
+            break;
+
+        case "br":
+            verticalMultiplier = -1;
+            horizontalMultiplier = 1;
+            bubbleX = x + width - 2;
+            bubbleY = y + height - 2;
+            break;
+    }
+
 
     // draw text somewhere to get its dimensions
-    tooltipText = r.text(x, y, text);
+    tooltipText = r.text(bubbleX, bubbleY, text);
 
     // get text dimensions to obtain tooltip dimensions
     let box = tooltipText.getBBox();
 
     /*
-        The tooltip box will look like the following (topright == true)
-         ____________________
-         |                  |
-         | _________________|
-         |/
+        The tooltip box will look like one of the following bubbles 
+        
+        orientation == "tl"             orientation = "tr"
+         ____________________           ____________________
+         |                  |           |                  |
+         |_________________ |           | _________________|
+                           \|           |/
 
-         or the following (else)
+         orientation == "bl"            orientation: "br"
 
-         |\__________________
-         |                  |
-         |__________________|
+         __________________/|           |\__________________
+         |                  |           |                  |
+         |__________________|           |__________________|
 
         width = box.width + 15 
         height = box.height + 10 (without the dent) + 5 (dent)
     */
 
-    let verticalMultiplier = topright === true ? 1 : -1;
-
     // move the text to its position
     tooltipText.attr({
-        x: x + ((box.width + 15) / 2),
-        y: y - verticalMultiplier * (5 + ((box.height + 10) / 2)),
+        x: bubbleX + horizontalMultiplier * ((box.width + 15) / 2),
+        y: bubbleY - verticalMultiplier * (5 + ((box.height + 10) / 2)),
     });
 
     //draw path for tooltip box
     tooltipShape = r.path(
         // 'M'ove to the 'dent' in the bubble
-        "M" + (x) + " " + (y) +
+        "M" + (bubbleX) + " " + (bubbleY) +
         // 'v'ertically draw a line (left line of the box)
         "v" + -(verticalMultiplier * (box.height + 15)) +
         // 'h'orizontally draw a line (top line of the box)
-        "h" + (box.width + 15) +
+        "h" + (horizontalMultiplier * (box.width + 15)) +
         // 'v'ertically draw a line (right line of the box)
         "v" + (verticalMultiplier * (box.height + 10)) +
         // 'h'orizontally draw a line (bottom line of the box)
-        "h" + -(box.width + 10) +
+        "h" + -(horizontalMultiplier * (box.width + 10)) +
         // 'Z' closes the figure (and creates the dent)
         "Z").attr({ fill: "white" });
 

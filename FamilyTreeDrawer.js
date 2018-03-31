@@ -71,9 +71,11 @@ function DrawFamilyTree(eGovernmentText) {
         // so that hover works also when the mouse pointer is over the text inside the box.
         let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({fill: "red", opacity: 0});
         transparentBox.toFront();
-        //function () { DrawTooltip(r, "abcderdasjhlsdl\nsdkjhl sdaljhaf\nsşdalj fşlsafjşklj", boxPosX - 2 + boxWidth, boxPosY - 2 + boxHeight, false)
+        
+        // Add tooltip
         transparentBox.hover(
-            function () { DrawTooltip(r, GetTooltipText(member), boxPosX - 2 + boxWidth, boxPosY + 2, true); }, 
+            function () { DrawTooltip(r, GetTooltipText(member), boxPosX, boxPosY, boxWidth, boxHeight, 
+                GetTooltipOrientation(member, maxX, maxY)); }, 
             function () { ClearTooltip(); }
         );
         shapes.push(nextShape);
@@ -92,8 +94,6 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Draw connections between boxes
     DrawConnections(familyTree, r);
-
-    // Add tooltip
 }
 
 /**
@@ -273,4 +273,16 @@ function GetTooltipText(person) {
         }
     }
     return str;
+}
+
+/**
+ * Determines the tooltip orientation of a given person according to her position at the family tree.
+ * @param {Object} person Person whose tooltip orientation needs to be found
+ * @param {number} maxX Maximum X index of the family tree
+ * @param {number} maxY Maximum Y index of the family tree
+ */
+function GetTooltipOrientation(person, maxX, maxY) {
+    let leftRight = person.X >= maxX - 1 ? "l" : "r";
+    let topBottom = person.Y >= maxY - 1 ? "t" : "b";
+    return topBottom + leftRight;   
 }

@@ -12,6 +12,5 @@ I'm not very fluent in Javascript, so don't be surprised if you see some awkward
 
 ## Bugs / Known Issues 
 
-1. More work needed for tooltips (all corners support, position based on the X and Y indices of the family member)
-2. General look and feel
-3. Save as png &rarr; <https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif>
+1. General look and feel
+2. Save as png &rarr; <https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif>
