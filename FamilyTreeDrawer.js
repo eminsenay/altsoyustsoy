@@ -5,9 +5,10 @@
 function DrawFamilyTree(eGovernmentText) {
     
     // Bugs / known issues:
-    // 3. No tooltips yet
-    // 4. General look and feel
-    // 5. Derived people should look like different than the people existing in the list
+    // 1. No tooltips yet
+    // 2. General look and feel
+    // 3. Derived people should look like different than the people existing in the list
+    // 4. save as png --> https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif
 
     let familyTree = BuildFamilyTree(eGovernmentText);
 
