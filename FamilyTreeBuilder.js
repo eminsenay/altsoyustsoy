@@ -63,7 +63,7 @@ function BuildFamilyTree(treeData) {
         // -
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.Durumu += parts[0].trim();
+        person.OlumTarihi = parts[0].trim();
 
         personList.push(person);
     }

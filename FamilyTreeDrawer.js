@@ -67,6 +67,15 @@ function DrawFamilyTree(eGovernmentText) {
         if (member.Sira === undefined) {
             nextShape.attr({ "stroke-dasharray": ". " });
         }
+        // Draw a transparent box with the same size as the original box and bring it to front, 
+        // so that hover works also when the mouse pointer is over the text inside the box.
+        let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({fill: "red", opacity: 0});
+        transparentBox.toFront();
+        //function () { DrawTooltip(r, "abcderdasjhlsdl\nsdkjhl sdaljhaf\nsşdalj fşlsafjşklj", boxPosX - 2 + boxWidth, boxPosY - 2 + boxHeight, false)
+        transparentBox.hover(
+            function () { DrawTooltip(r, GetTooltipText(member), boxPosX - 2 + boxWidth, boxPosY + 2, true); }, 
+            function () { ClearTooltip(); }
+        );
         shapes.push(nextShape);
         texts[i].attr({
             x: textPosX,
@@ -245,4 +254,23 @@ function DrawConnections(familyTree, r) {
             r.connection(member.Baba.Shape, member.Anne.Shape, "#000");
         }
     }
+}
+
+/**
+ * Prepares details of a given person to be displayed at the tooltip.
+ * @param {Object} person Person whose tooltip is being prepared.
+ */
+function GetTooltipText(person) {
+    let str = person.YakinlikDerecesi;
+    if (person.DogumYeri !== undefined) {
+        str += "\nDoğum Yeri: " + person.DogumYeri + "\n" +
+            "Doğum Tarihi: " + person.DogumTarihi + "\n" +
+            "Medeni Hali: " + person.MedeniHali + "\n" +
+            "Durumu: " + person.Durumu;
+
+        if (person.Durumu === "Ölüm" && person.OlumTarihi !== undefined) {
+            str += "\nÖlüm Tarihi: " + person.OlumTarihi;
+        }
+    }
+    return str;
 }
