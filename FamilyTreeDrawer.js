@@ -1,21 +1,28 @@
+
+!function () {
+    this.DrawFamilyTree = DrawFamilyTree
+}();
+
 /**
  * Draws the family tree using Raphaeljs.
- * @param {straing} eGovernmentText Full text of the related eGovernment page
+ * @param {string} eGovernmentText Full text of the related eGovernment page
  */
 function DrawFamilyTree(eGovernmentText) {
-    
+
     // Bugs / known issues:
     // 1. No tooltips yet
     // 2. General look and feel
     // 3. Derived people should look like different than the people existing in the list
     // 4. save as png --> https://stackoverflow.com/questions/14165571/how-to-show-download-raphaeljs-canvas-as-an-imagepng-gif
 
+    /* global BuildFamilyTree */
     let familyTree = BuildFamilyTree(eGovernmentText);
 
     // Find relative coordinates of the family members
     FindCoordinates(familyTree);
 
     // Initialize Raphäel
+    /*global Raphael */
     var r = Raphael("holder", 100, 100);
 
     // Draw texts and determine the size of each box
@@ -25,13 +32,13 @@ function DrawFamilyTree(eGovernmentText) {
         const member = familyTree[i];
         let nextText = r.text(100, 100, GetFullName(member));
         texts.push(nextText);
-        
+
         let nextWidth = nextText.getBBox().width;
         if (nextWidth > maxTextWidth) {
             maxTextWidth = nextWidth;
         }
     }
-    
+
     // Draw boxes and move texts
     /*
     -  --------------         --------------
@@ -62,6 +69,10 @@ function DrawFamilyTree(eGovernmentText) {
         let boxPosX = textPosX - boxWidth / 2;
         let boxPosY = textPosY - boxHeight / 2;
         let nextShape = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10);
+        // show the members which don't appear at the original input table as dashed
+        if (member.Sira === undefined) {
+            nextShape.attr({ "stroke-dasharray": ". " });
+        }
         shapes.push(nextShape);
         texts[i].attr({
             x: textPosX,
@@ -72,7 +83,7 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Resize the canvas
     // X and Y start with 0. There are maxX and maxY horizontal/vertical spacings, maxX+1 and maxY+1 boxes.
-    r.setSize(maxX * (boxWidth + horizontalBoxSpacing) + boxWidth + 20, 
+    r.setSize(maxX * (boxWidth + horizontalBoxSpacing) + boxWidth + 20,
         maxY * (boxHeight + verticalBoxSpacing) + boxHeight + 20);
     //r.canvas.style.backgroundColor = "#F00";
 
@@ -90,9 +101,9 @@ function FindCoordinates(familyTree) {
 
     let numAncestorLayers = FindNumberOfAncestorLayers(familyTree);
     let nextXIndex = 0;
-    
+
     // find descendants who don't have any children
-    var people = familyTree.filter(x => (x.Children === undefined || x.Children.length == 0) && 
+    var people = familyTree.filter(x => (x.Children === undefined || x.Children.length == 0) &&
         (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı")));
 
     // use the people as a stack. Depth-first traverse, first fathers until no more father is to be found, 
