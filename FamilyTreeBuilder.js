@@ -44,7 +44,8 @@ function BuildFamilyTree(treeData) {
         // 01/07/1837	Sivas/
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.DogumTarihi = parts[0].trim();
+        let dateParts = parts[0].trim().split("/");
+        person.DogumTarihi = dateParts.length == 3 ? new Date(dateParts[2], dateParts[1], dateParts[0]) : undefined;
         person.Il = parts[1].trim();
 
         // Divriği /
@@ -63,7 +64,9 @@ function BuildFamilyTree(treeData) {
         // -
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
-        person.OlumTarihi = parts[0].trim();
+        dateParts = parts[0].trim().split("/");
+        person.OlumTarihi = dateParts !== undefined && dateParts.length == 3 ? 
+            new Date(dateParts[2], dateParts[1], dateParts[0]) : undefined;
 
         personList.push(person);
     }

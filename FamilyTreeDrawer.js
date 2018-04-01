@@ -265,12 +265,16 @@ function GetTooltipText(person) {
     let str = person.YakinlikDerecesi;
     if (person.DogumYeri !== undefined) {
         str += "\nDoğum Yeri: " + person.DogumYeri + "\n" +
-            "Doğum Tarihi: " + person.DogumTarihi + "\n" +
+            "Doğum Tarihi: " + GetDateAsDDMMYYYY(person.DogumTarihi) + "\n" +
             "Medeni Hali: " + person.MedeniHali + "\n" +
             "Durumu: " + person.Durumu;
 
         if (person.Durumu === "Ölüm" && person.OlumTarihi !== undefined) {
-            str += "\nÖlüm Tarihi: " + person.OlumTarihi;
+            str += "\nÖlüm Tarihi: " + GetDateAsDDMMYYYY(person.OlumTarihi);
+            if (person.DogumTarihi !== undefined) {
+                let age = new Date(person.OlumTarihi - person.DogumTarihi);
+                str += " (" + (age.getFullYear() - 1970) + " yaşında)";
+            }
         }
     }
     return str;
@@ -286,4 +290,12 @@ function GetTooltipOrientation(person, maxX, maxY) {
     let leftRight = person.X >= maxX - 1 ? "l" : "r";
     let topBottom = person.Y >= maxY - 1 ? "t" : "b";
     return topBottom + leftRight;   
+}
+
+/**
+ * Formats the given date as "dd/mm/yyyy" and returns the result.
+ * @param {Date} date date object
+ */
+function GetDateAsDDMMYYYY(date) {
+    return "" + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 }
