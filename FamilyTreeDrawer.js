@@ -95,6 +95,14 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Draw connections between boxes
     DrawConnections(familyTree, r);
+
+    // let svgOutput = r.toSVG();
+    // let a = document.createElement('a');
+    // a.download = 'mySvg.svg';
+    // a.type = 'image/svg+xml';
+    // let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
+    // a.href = (window.URL || webkitURL).createObjectURL(blob);
+    // a.click();
 }
 
 /**
