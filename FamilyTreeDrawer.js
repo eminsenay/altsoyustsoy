@@ -73,6 +73,7 @@ function DrawFamilyTree(eGovernmentText) {
         transparentBox.toFront();
         
         // Add tooltip
+        /* global DrawTooltip, ClearTooltip */
         transparentBox.hover(
             function () { DrawTooltip(r, GetTooltipText(member), boxPosX, boxPosY, boxWidth, boxHeight, 
                 GetTooltipOrientation(member, maxX, maxY)); }, 

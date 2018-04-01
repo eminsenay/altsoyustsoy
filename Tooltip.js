@@ -1,3 +1,8 @@
+!function () {
+    this.DrawTooltip = DrawTooltip;
+    this.ClearTooltip = ClearTooltip;
+}();
+
 var tooltipText, tooltipShape;
 
 /**
