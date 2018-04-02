@@ -116,7 +116,8 @@ function FindCoordinates(familyTree) {
 
     // find descendants who don't have any children
     var people = familyTree.filter(x => (x.Children === undefined || x.Children.length == 0) &&
-        (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı")));
+        (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı") || 
+        x.YakinlikDerecesi.startsWith("kendisi")));
 
     // use the people as a stack. Depth-first traverse, first fathers until no more father is to be found, 
     // then spouses of the fathers.
@@ -305,5 +306,5 @@ function GetTooltipOrientation(person, maxX, maxY) {
  * @param {Date} date date object
  */
 function GetDateAsDDMMYYYY(date) {
-    return "" + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    return "" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 }

@@ -45,7 +45,7 @@ function BuildFamilyTree(treeData) {
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
         let dateParts = parts[0].trim().split("/");
-        person.DogumTarihi = dateParts.length == 3 ? new Date(dateParts[2], dateParts[1], dateParts[0]) : undefined;
+        person.DogumTarihi = dateParts.length == 3 ? new Date(dateParts[2], dateParts[1] - 1, dateParts[0]) : undefined;
         person.Il = parts[1].trim();
 
         // Divriği /
@@ -66,7 +66,7 @@ function BuildFamilyTree(treeData) {
         parts = CleanArray(line.split("\t"));
         dateParts = parts[0].trim().split("/");
         person.OlumTarihi = dateParts !== undefined && dateParts.length == 3 ? 
-            new Date(dateParts[2], dateParts[1], dateParts[0]) : undefined;
+            new Date(dateParts[2], dateParts[1] - 1, dateParts[0]) : undefined;
 
         personList.push(person);
     }
