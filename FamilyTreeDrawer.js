@@ -96,12 +96,13 @@ function DrawFamilyTree(eGovernmentText) {
     // Draw connections between boxes
     DrawConnections(familyTree, r);
 
-    // let svgOutput = r.toSVG();
-    // let a = document.createElement('a');
-    // a.download = 'mySvg.svg';
-    // a.type = 'image/svg+xml';
-    // let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
-    // a.href = (window.URL || webkitURL).createObjectURL(blob);
+    let svgOutput = r.toSVG();
+    let a = document.getElementById("downloadlink");
+    a.download = 'mySvg.svg';
+    a.type = 'image/svg+xml';
+    let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
+    var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL || function(){};
+    a.href = createObjectURL(blob);
     // a.click();
 }
 
