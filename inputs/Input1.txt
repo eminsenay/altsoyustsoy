@@ -1,0 +1,209 @@
+
+İçeriğe Git Ana Sayfa
+e-Devlet Kapısı
+Ana Bölümler
+
+    Aranan Terim
+
+    HALİM
+
+    Ana Sayfa
+    Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü
+    Alt-Üst Soy Bilgisi Sorgulama 
+
+Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü
+Alt-Üst Soy Bilgisi Sorgulama
+
+    Puanla / Sorun Bildir
+    Favoriler'e Ekle
+    Paylaş Twitter Facebook
+
+    Bu hizmet Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü işbirliği ile e-Devlet Kapısı altyapısı üzerinden sunulmaktadır.
+
+    Yazdır
+
+T.C.
+İÇİŞLERİ BAKANLIĞI
+NÜFUS VE VATANDAŞLIK İŞLERİ GENEL MÜDÜRLÜĞÜ
+ALT ÜST SOY BELGESİ Sıra 	C 	Yakınlık Derecesi 	Adı 	Soyadı 	Baba Adı 	Ana Adı 	Doğum Yeri ve Tarihi 	İl-İlçe-Mahalle/Köy 	Cilt-Hane-Birey Sıra No 	Medeni Hali 	Durumu
+1 	K 	Babasının Annesinin Babasının Babasının Annesi 	SEYHAN 	DOĞAN 	HASAN 	SAFİNAZ 	POLATLI
+01/07/1837 	Ankara/
+Polatlı/
+AYRANLI MAHALLESİ 	5-34-6 	Dul 	Sağ
+-
+2 	K 	Babasının Annesinin Annesinin Babasının Annesi 	ELLİF 	ÖZERKUŞ 	HASAN 	MIRNAV 	KARAKALEM
+01/07/1849 	Ankara/
+Polatlı/
+ULUPELİT MAHALLESİ 	56-9-5 	Dul 	Ölüm
+-
+3 	K 	Annesinin Annesinin Babasının Annesi 	HATİCE 	MURATLI 	MEHMET 	LEYLA 	KALEİÇİ
+01/07/1853 	Afyon/
+Kolpa/
+GÜNBATIMI MAHALLESİ 	1-50-7 	Dul 	Ölüm
+23/10/1935
+4 	K 	Babasının Babasının Babasının Annesi 	MIRNAV 	- 	İBORO 	ZEYTİN 	KALEALTI
+01/07/1857 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	3-86-6 	Dul 	Ölüm
+27/01/1919
+5 	K 	Babasının Babasının Annesinin Annesi 	SAHİCİ 	- 	MAHMUT 	ZEYTİN 	POLATLI
+01/07/1859 	Ankara/
+Polatlı/
+HACIMAHMUT MAHALLESİ 	1-26-57 	Evli 	Ölüm
+09/02/1911
+6 	E 	Babasının Annesinin Babasının Babası 	ALİ 	- 	MEMİŞ 	SEYHAN 	POLATLI
+01/07/1874 	Ankara/
+Polatlı/
+AYRANLI MAHALLESİ 	2-25-2 	Evli 	Ölüm
+24/08/1918
+7 	K 	Babasının Annesinin Babasının Annesi 	LEYLA 	DOĞAN 	HASAN 	HALİME 	POLATLI
+01/07/1877 	Ankara/
+Polatlı/
+AYRANLI MAHALLESİ 	5-4-76 	Dul 	Ölüm
+04/04/1943
+8 	E 	Babasının Annesinin Annesinin Babası 	YUNÜS 	ÖZERKUŞ 	TANKUT 	ELLİF 	ULUPELİT
+01/07/1879 	Ankara/
+Polatlı/
+ULUPELİT MAHALLESİ 	33-6-3 	Evli 	Ölüm
+10/04/1944
+9 	K 	Annesinin Babasının Babasının Annesi 	ELLİF 	MAVİLİ 	YUSUF 	LEYLA 	KALEİÇİ
+01/07/1883 	Afyon/
+Kolpa/
+CUMGÖKNURT MAHALLESİ 	11-31-6 	Dul 	Ölüm
+07/04/1942
+10 	E 	Babasının Babasının Babası 	MEMİŞ 	- 	YUSUF 	MIRNAV 	GÖKÇEPINAR
+01/07/1889 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	1-56-2 	Evli 	Ölüm
+-
+11 	K 	Babasının Annesinin Annesinin Annesi 	ZEYTİN 	ÖZERKUŞ 	YUSUF 	SEYHAN 	GÖKÇEPINAR
+01/07/1889 	Ankara/
+Polatlı/
+ULUPELİT MAHALLESİ 	25-3-1 	Dul 	Ölüm
+-
+12 	K 	Babasının Babasının Annesi 	NAZİLE 	- 	HALİM 	SAFİNAZ 	GÖKÇEPINAR
+01/07/1891 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	5-3-45 	Dul 	Ölüm
+02/02/1919
+13 	K 	Annesinin Annesinin Annesi 	SAFİNAZ 	MURATLI 	ALİ 	GÖKNUR 	KALEİÇİ
+01/07/1896 	Afyon/
+Kolpa/
+GÜNBATIMI MAHALLESİ 	34-30-32 	Dul 	Ölüm
+18/06/1945
+14 	E 	Annesinin Annesinin Babası 	MEHMET 	MURATLI 	İBORO 	HATİCE 	KALEİÇİ
+01/07/1896 	Afyon/
+Kolpa/
+GÜNBATIMI MAHALLESİ 	35-7-11 	Evli 	Ölüm
+14/11/1940
+15 	E 	Babasının Annesinin Babası 	MEMİŞ 	DOĞAN 	ALİ 	LEYLA 	AYRANLI
+01/07/1899 	Ankara/
+Polatlı/
+İMAMOĞLU MAHALLESİ 	12-13-14 	Evli 	Ölüm
+13/02/1972
+16 	K 	Babasının Annesinin Annesi 	LEYLA 	DOĞAN 	YUNUS 	ZEYTİN 	POLATLI
+01/07/1900 	Ankara/
+Polatlı/
+İMAMOĞLU MAHALLESİ 	111-16-4 	Dul 	Ölüm
+21/09/1978
+17 	E 	Annesinin Babasının Babası 	YUSUF HAKAN 	MAVİLİ 	MAHMUT 	ELLİF 	KALEİÇİ
+01/07/1908 	Afyon/
+Kolpa/
+CUMGÖKNURT MAHALLESİ 	12-11-43 	Dul 	Ölüm
+26/07/1979
+18 	K 	Annesinin Babasının Annesi 	ELLİF 	MAVİLİ 	MERT 	GÖKNUR 	KALEİÇİ
+01/07/1910 	Afyon/
+Kolpa/
+CUMGÖKNURT MAHALLESİ 	21-311-65 	Evli 	Ölüm
+22/01/1977
+19 	E 	Babasının Babası 	HALİM 	KORU 	MEMİŞ 	NAZİLE 	GÖKÇEPINAR
+01/07/1913 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	75-3-63 	Dul 	Ölüm
+25/10/2004
+20 	K 	Babasının Annesi 	SABRİYE 	KORU 	MEMİŞ 	LEYLA 	AYRANLI
+01/07/1924 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	72-66-23 	Evli 	Ölüm
+23/04/1998
+21 	E 	Annesinin Babası 	MEHMET 	MAVİLİ 	YUSUF HAKAN 	ELLİF 	KALEİÇİ
+11/12/1934 	Afyon/
+Neresi/
+KARAKUŞAK MAHALLESİ 	12-17-12 	Evli 	Ölüm
+03/01/2011
+22 	K 	Annesinin Annesi 	HAYRİYE 	MAVİLİ 	MEHMET 	SAFİNAZ 	KALEİÇİ
+14/07/1937 	Afyon/
+Neresi/
+KARAKUŞAK MAHALLESİ 	12-57-22 	Dul 	Sağ
+-
+23 	E 	Babası 	HASAN CANER 	KORU 	HALİM 	SABRİYE 	POLATLI
+25/07/1953 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	27-6-14 	Evli 	Sağ
+-
+24 	K 	Annesi 	CANSU 	KORU 	MEHMET 	HAYRİYE 	KALEİÇİ
+01/01/1959 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	17-6-4 	Evli 	Sağ
+-
+25 	E 	Kendisi 	HALİM 	KORU 	HASAN CANER 	CANSU 	ANTALYA
+16/10/1984 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	71-6-6 	Evli 	Sağ
+-
+26 	E 	Oğlu 	TURGUT 	KORU 	HALİM 	SANİYE 	KADIKÖY
+22/04/2015 	Ankara/
+Polatlı/
+GÖKÇEPINAR MAHALLESİ 	71-3-47 	Bekâr 	Sağ
+-
+AÇIKLAMALAR
+1-) 	İŞBU BELGE turkiye.gov.tr ADRESİNDEN 26.03.2018 TARİHİNDE BİLGİLENDİRME AMACIYLA OLUŞTURULMUŞTUR. HERHANGİ BİR RESMİ İŞLEMDE KULLANILAMAZ.
+
+Bu bilgiler 26.03.2018 22:08:34 tarihinde oluşturulmuştur.
+Sayfa Sonu Bağlantıları
+
+    e-Devlet Kapısı
+        Ana Sayfa
+        English
+        Hakkımızda
+        Yasal Bildirim
+        Gizlilik ve Kullanım
+    e-Hizmetler
+        Sık Kullanılan Hizmetler
+        Yeni Eklenen Hizmetler
+        Belediye Hizmetleri
+        e-Hizmetler
+    Kamu Kurumları
+        Tüm Kurumlar
+        Belediyeler
+        Kamu Hizmet Envanteri
+    Yardım
+        Genel Yardım
+        Sıkça Sorulanlar
+        Politikalarımız
+        Güvenliğiniz İçin
+    Bize Ulaşın
+        İletişim
+        BİMER Başvurusu
+        Help For Non-Citizens
+    Erişilebilirlik
+        Salt Metin Görünümü
+        Daha Belirgin Odaklama
+        Klavye Kısayolları
+        Site Haritası
+
+İletişim Seçenekleri
+Yardım mı lazım? Aşağıdaki yöntemleri kullanarak bizimle iletişime geçebilirsiniz.
+
+    Hızlı Çözüm Merkezi
+    Bize Yazın
+    e-Devlet Çağrı Merkezi
+    Engelsiz Çağrı Merkezi
+
+Facebook
+Twitter
+Youtube
+Instagram
+Başbakanlık Ulaştırma, Denizcilik ve Haberleşme Bakanlığı Haberleşme Genel Müdürlüğü Türksat A.Ş.
+e-Devlet Kapısı’nın kurulması ve yönetilmesi görevi Başbakanlık adına Ulaştırma, Denizcilik ve Haberleşme Bakanlığı tarafından yürütülmekte, sistemin geliştirilmesi ve işletilmesi Türksat A.Ş. tarafından yapılmaktadır.
+©2018 Tüm Hakları Saklıdır. Gizlilik, Kullanım ve Telif Hakları bildiriminde belirtilen kurallar çerçevesinde hizmet sunulmaktadır.

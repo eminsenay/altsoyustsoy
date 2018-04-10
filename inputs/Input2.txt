@@ -1,0 +1,232 @@
+Ýçeriðe Git Ana Sayfa
+e-Devlet Kapýsý
+Ana Bölümler
+ 
+Aranan Terim
+
+Size nasýl yardým edebilirim?
+ GÖKAY 1
+Ana Sayfa
+ 
+Nüfus ve Vatandaþlýk Ýþleri Genel Müdürlüðü
+ Alt-Üst Soy Bilgisi Sorgulama
+
+Nüfus ve Vatandaþlýk Ýþleri Genel Müdürlüðü
+Alt-Üst Soy Bilgisi Sorgulama
+Puanla / Sorun Bildir 
+Favoriler'e Ekle 
+Paylaþ Twitter Facebook
+Bu hizmet Nüfus ve Vatandaþlýk Ýþleri Genel Müdürlüðü iþbirliði ile e-Devlet Kapýsý altyapýsý üzerinden sunulmaktadýr.
+Yazdýr
+T.C.
+ÝÇÝÞLERÝ BAKANLIÐI
+NÜFUS VE VATANDAÞLIK ÝÞLERÝ GENEL MÜDÜRLÜÐÜ
+ALT ÜST SOY BELGESÝ
+Sýra	C	Yakýnlýk Derecesi	Adý	Soyadý	Baba Adý	Ana Adý	Doðum Yeri ve Tarihi	Ýl-Ýlçe-Mahalle/Köy	Cilt-Hane-Birey Sýra No	Medeni Hali	Durumu
+1	E	Annesinin Annesinin Babasýnýn Babasýnýn Babasý	MERT	-	VELÝ	AYTEN	GÜMÜÞHANE
+01/07/1839	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	7-44-11	Evli	Ölüm
+23/09/1908
+2	K	Babasýnýn Babasýnýn Annesinin Babasýnýn Annesi	FÝLÝZ	GÜN	ÝSMET	MELÝKE	BÝLECÝK
+01/07/1839	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	112-3-1	Dul	Ölüm
+10/11/1918
+3	K	Annesinin Annesinin Babasýnýn Babasýnýn Annesi	AYTEN	-	HÜSNÜ	ZEYNEP	GÜMÜÞHANE
+01/07/1844	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	7-41-2	Dul	Ölüm
+18/06/1906
+4	E	Babasýnýn Babasýnýn Babasýnýn Babasýnýn Babasý	BÝLAL	-	MEMÝÞ	MÝLAT	BÝLECÝK
+01/07/1844	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-134-21	Evli	Ölüm
+20/08/1922
+5	K	Babasýnýn Babasýnýn Babasýnýn Babasýnýn Annesi	AYTEN	KORKUT	HÜSNÜ	NAÝLE	TUNCELÝ
+01/07/1854	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-114-44	Dul	Ölüm
+03/01/1943
+6	E	Annesinin Babasýnýn Babasýnýn Babasý	BÝLAL	GAYRET	MERT	ZEYNEP	GÜMÜÞHANE
+01/07/1858	GÜMÜÞHANE/
+Didim/
+DÝKENCE MAHALLESÝ	25-3-11	Evli	Ölüm
+10/07/1940
+7	E	Babasýnýn Babasýnýn Annesinin Babasý	HÜSNÜ	-	DURSUN	FÝLÝZ	BÝLECÝK
+01/07/1859	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	14-46-11	Evli	Ölüm
+-
+8	E	Annesinin Annesinin Babasýnýn Babasý	VELÝ MURAT	-	MERT	AYTEN	GÜMÜÞHANE
+01/07/1867	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	4-44-2	Evli	Ölüm
+02/08/1909
+9	E	Babasýnýn Annesinin Annesinin Babasý	RECEP	-	MUHAMMET	ZEYNEP	GÜMÜÞHANE
+01/07/1868	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	8-8-11	Evli	Ölüm
+-
+10	K	Babasýnýn Babasýnýn Annesinin Annesi	HOÞNUT	GÜN	AHMET	DÝCLE	BÝLECÝK
+01/07/1872	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-61-28	Dul	Ölüm
+26/02/1954
+11	K	Babasýnýn Annesinin Annesinin Annesi	DÝLARA	-	HÜSNÜ	ZEYNEP	GÜMÜÞHANE
+01/07/1878	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	8-1-41	Dul	Ölüm
+02/04/1924
+12	E	Babasýnýn Annesinin Babasýnýn Babasý	GÜNEY	-	MERT	FÝLÝZ	GÜMÜÞHANE
+01/07/1880	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	3-81-12	Evli	Ölüm
+03/05/1912
+13	K	Annesinin Annesinin Babasýnýn Annesi	AYTEN	-	HASAN	ÞEKER	GÜMÜÞHANE
+01/07/1881	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	42-6-84	Dul	Ölüm
+-
+14	K	Babasýnýn Annesinin Babasýnýn Annesi	FÝLÝZ	RAHMAN	DURMUÞ	MELÝSA	GÜMÜÞHANE
+01/07/1881	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	8-2-31	Dul	Ölüm
+18/03/1956
+15	E	Babasýnýn Babasýnýn Babasýnýn Babasý	SÜLEYMAN	-	BÝLAL	AYTEN	BÝLECÝK
+01/07/1881	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	14-114-23	Evli	Ölüm
+-
+16	K	Annesinin Annesinin Annesinin Annesi	MELÝSA	-	HÜSNÜ	HANÝFE	GÜMÜÞHANE
+01/07/1885	GÜMÜÞHANE/
+Didim/
+YAÐIZLI MAHALLESÝ	9-41-32	Dul	Ölüm
+20/05/1967
+17	E	Annesinin Annesinin Annesinin Babasý	ÝSMET	-	ÝSMET	EMÝNE	GÜMÜÞHANE
+01/07/1885	GÜMÜÞHANE/
+Didim/
+YAÐIZLI MAHALLESÝ	91-42-14	Evli	Ölüm
+-
+18	K	Annesinin Babasýnýn Annesi	GÜLSÜM	GAYRET	AHMET	ZEYNEP	GÜMÜÞHANE
+01/07/1891	GÜMÜÞHANE/
+Didim/
+DÝKENCE MAHALLESÝ	5-31-13	Evli	Ölüm
+01/06/1967
+19	E	Annesinin Babasýnýn Babasý	VELÝ	GAYRET	BÝLAL	HANÝFE	GÜMÜÞHANE
+01/07/1893	GÜMÜÞHANE/
+Didim/
+DÝKENCE MAHALLESÝ	5-32-44	Dul	Ölüm
+09/02/1970
+20	E	Annesinin Annesinin Babasý	MERT	HULUSÝ	VELÝ MURAT	AYTEN	GÜMÜÞHANE
+01/07/1904	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	41-42-53	Evli	Ölüm
+18/01/1948
+21	E	Babasýnýn Annesinin Babasý	LÜTFÜ	RAHMAN	GÜNEY	FÝLÝZ	GÜMÜÞHANE
+01/07/1904	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	3-82-21	Dul	Ölüm
+03/08/1987
+22	K	Annesinin Annesinin Annesi	AFÝTAP	HULUSÝ	ÝSMET	MELÝSA	YAÐIZLI
+01/07/1905	GÜMÜÞHANE/
+Didim/
+GÜNÖREN MAHALLESÝ	42-42-2	Dul	Ölüm
+29/02/1988
+23	K	Babasýnýn Babasýnýn Annesi	EMÝNE	KORKUT	HÜSNÜ	HOÞNUT	GÜMÜÞHANE
+14/03/1907	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-124-2	Evli	Ölüm
+20/06/1942
+24	E	Babasýnýn Babasýnýn Babasý	ÝSMET	KORKUT	SÜLEYMAN	FÝLÝZ	GÜMÜÞHANE
+10/11/1907	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	14-11-73	Dul	Ölüm
+20/12/1989
+25	K	Babasýnýn Annesinin Annesi	ZEYNEP	RAHMAN	RECEP	DÝLARA	GÜMÜÞHANE
+16/05/1909	GÜMÜÞHANE/
+Didim/
+DELÝKKAYA MAHALLESÝ	31-82-1	Evli	Ölüm
+05/05/1974
+26	E	Annesinin Babasý	YUNUS	GAYRET	VELÝ	GÜLSÜM	GÜMÜÞHANE
+01/03/1925	GÜMÜÞHANE/
+Didim/
+DÝKENCE MAHALLESÝ	8-32-2	Evli	Ölüm
+13/10/2004
+27	K	Annesinin Annesi	GÜLLÜ	GAYRET	MERT	DÝLARA	GÜMÜÞHANE
+18/02/1926	GÜMÜÞHANE/
+Didim/
+DÝKENCE MAHALLESÝ	83-31-44	Dul	Ölüm
+25/06/2016
+28	K	Babasýnýn Annesi	MEVLÜDE	KORKUT	LÜTFÜ	ZEYNEP	GÜMÜÞHANE
+01/03/1934	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-12-41	Evli	Ölüm
+27/01/1972
+29	E	Babasýnýn Babasý	CEMAL	KORKUT	ÝSMET	EMÝNE	GÜMÜÞHANE
+01/07/1934	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	11-13-12	Dul	Sað
+-
+30	K	Annesi	DAMLA	KORKUT	YUNUS	GÜLLÜ	GÜMÜÞHANE
+14/06/1961	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	14-114-11	Evli	Sað
+-
+31	E	Babasý	KERÝM	KORKUT	CEMAL	MEVLÜDE	GÜMÜÞHANE
+04/04/1965	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	24-11-64	Evli	Sað
+-
+32	E	Kendisi	GÖKAY	KORKUT	KERÝM	DAMLA	GÜMÜÞHANE
+22/12/1984	GÜMÜÞHANE/
+Didim/
+BÝLGÝÇ MAHALLESÝ	23-11-124	Evli	Sað
+-
+AÇIKLAMALAR
+1-)	ÝÞBU BELGE turkiye.gov.tr ADRESÝNDEN 02.04.2018 TARÝHÝNDE BÝLGÝLENDÝRME AMACIYLA OLUÞTURULMUÞTUR. HERHANGÝ BÝR RESMÝ ÝÞLEMDE KULLANILAMAZ.
+
+Bu bilgiler 02.04.2018 10:08:38 tarihinde oluþturulmuþtur.
+Sayfa Sonu Baðlantýlarý
+e-Devlet Kapýsý
+Ana Sayfa
+English
+Hakkýmýzda
+Yasal Bildirim
+Gizlilik ve Kullaným
+e-Hizmetler
+Sýk Kullanýlan Hizmetler
+Yeni Eklenen Hizmetler
+Belediye Hizmetleri
+e-Hizmetler
+Kamu Kurumlarý
+Tüm Kurumlar
+Belediyeler
+Kamu Hizmet Envanteri
+Yardým
+Genel Yardým
+Sýkça Sorulanlar
+Politikalarýmýz
+Güvenliðiniz Ýçin
+Bize Ulaþýn
+Ýletiþim
+BÝMER Baþvurusu
+Help For Non-Citizens
+Eriþilebilirlik
+Salt Metin Görünümü
+Daha Belirgin Odaklama
+Klavye Kýsayollarý
+Site Haritasý
+Ýletiþim Seçenekleri
+Yardým mý lazým? Aþaðýdaki yöntemleri kullanarak bizimle iletiþime geçebilirsiniz.
+Hýzlý Çözüm Merkezi
+Bize Yazýn
+e-Devlet Çaðrý Merkezi
+Engelsiz Çaðrý Merkezi
+Facebook
+Twitter
+Youtube
+Instagram
+ Baþbakanlýk  Ulaþtýrma, Denizcilik ve Haberleþme Bakanlýðý  Haberleþme Genel Müdürlüðü  Türksat A.Þ.
+e-Devlet Kapýsý’nýn kurulmasý ve yönetilmesi görevi Baþbakanlýk adýna Ulaþtýrma, Denizcilik ve Haberleþme Bakanlýðý tarafýndan yürütülmekte, sistemin geliþtirilmesi ve iþletilmesi Türksat A.Þ. tarafýndan yapýlmaktadýr.
+©2018 Tüm Haklarý Saklýdýr. Gizlilik, Kullaným ve Telif Haklarý bildiriminde belirtilen kurallar çerçevesinde hizmet sunulmaktadýr.
