@@ -1,8 +1,11 @@
 
 !function () {
-    this.DrawFamilyTree = DrawFamilyTree
+    this.DrawFamilyTree = DrawFamilyTree;
+    this.GenerateSvg = GenerateSvg;
 }();
 
+// Global Raphäel object
+var r;
 /**
  * Draws the family tree using Raphaeljs.
  * @param {string} eGovernmentText Full text of the related eGovernment page
@@ -17,7 +20,7 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Initialize Raphäel
     /*global Raphael */
-    var r = Raphael("holder", 100, 100);
+    r = Raphael("holder", 100, 100);
 
     // Draw texts and determine the size of each box
     var shapes = [], texts = [];
@@ -95,15 +98,23 @@ function DrawFamilyTree(eGovernmentText) {
 
     // Draw connections between boxes
     DrawConnections(familyTree, r);
+}
+
+/**
+ * Generates the SVG image of the drawn family tree to be downloaded for the given a element.
+ * @param {Object} a html a element to be hrefed.
+ */
+function GenerateSvg(a) {
+    if (r === undefined) {
+        return;
+    }
 
     let svgOutput = r.toSVG();
-    let a = document.getElementById("downloadlink");
     a.download = 'mySvg.svg';
     a.type = 'image/svg+xml';
     let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
     var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL || function(){};
     a.href = createObjectURL(blob);
-    // a.click();
 }
 
 /**
