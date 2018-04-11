@@ -12,10 +12,11 @@ var tooltipText, tooltipShape;
  * @param {number} x X coordinate of the tooltip shape
  * @param {number} y Y coordinate of the tooltip shape
  * @param {string} orientation One of the following: 
+ * @param {bool} isTransparent true, if the tooltip needs to be drawn as transparent
  * "tr" (top right), "tl" (top left), "br" (bottom right), "bl" (bottom left)
  * default: top right
  */
-function DrawTooltip(r, text, x, y, width, height, orientation) {
+function DrawTooltip(r, text, x, y, width, height, orientation, isTransparent) {
 
     // find out the coordinates of the tooltip and multipliers of the bubble according to the given orientation
     let bubbleX;
@@ -85,6 +86,10 @@ function DrawTooltip(r, text, x, y, width, height, orientation) {
         y: bubbleY - verticalMultiplier * (5 + ((box.height + 10) / 2)),
     });
 
+    if (isTransparent === true) {
+        tooltipText.attr({ opacity: 0 });
+    }
+
     //draw path for tooltip box
     tooltipShape = r.path(
         // 'M'ove to the 'dent' in the bubble
@@ -100,6 +105,9 @@ function DrawTooltip(r, text, x, y, width, height, orientation) {
         // 'Z' closes the figure (and creates the dent)
         "Z").attr({ fill: "white" });
 
+    if (isTransparent === true) {
+        tooltipShape.attr({ opacity: 0 });
+    }
     //finally put the text in front
     tooltipText.toFront();
 }

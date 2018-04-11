@@ -6,6 +6,10 @@
 
 // Global Raphäel object
 var r;
+// Global Family Tree
+var familyTree;
+// Global transparent Boxes
+var transparentBoxes = [];
 /**
  * Draws the family tree using Raphaeljs.
  * @param {string} eGovernmentText Full text of the related eGovernment page
@@ -13,7 +17,7 @@ var r;
 function DrawFamilyTree(eGovernmentText) {
 
     /* global BuildFamilyTree */
-    let familyTree = BuildFamilyTree(eGovernmentText);
+    familyTree = BuildFamilyTree(eGovernmentText);
 
     // Find relative coordinates of the family members
     FindCoordinates(familyTree);
@@ -51,15 +55,11 @@ function DrawFamilyTree(eGovernmentText) {
     */
     const boxHeight = 40, horizontalBoxSpacing = 30, verticalBoxSpacing = 40, padding = 10;
     const boxWidth = maxTextWidth + padding;
-    let maxX = 0, maxY = 0;
+    let maxX = Math.max.apply(Math, familyTree.map(member => member.X));
+    let maxY = Math.max.apply(Math, familyTree.map(member => member.Y));
+
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
-        if (maxX < member.X) {
-            maxX = member.X;
-        }
-        if (maxY < member.Y) {
-            maxY = member.Y;
-        }
         let textPosX = member.X * (maxTextWidth + horizontalBoxSpacing + padding) + boxWidth / 2 + 10;
         let textPosY = member.Y * (boxHeight + verticalBoxSpacing) + boxHeight / 2 + 10;
         // textPosX and textPosY are centered. Find the upper left corner of the box from this info.
@@ -74,12 +74,13 @@ function DrawFamilyTree(eGovernmentText) {
         // so that hover works also when the mouse pointer is over the text inside the box.
         let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({fill: "red", opacity: 0});
         transparentBox.toFront();
+        transparentBoxes.push(transparentBox);
         
         // Add tooltip
         /* global DrawTooltip, ClearTooltip */
         transparentBox.hover(
             function () { DrawTooltip(r, GetTooltipText(member), boxPosX, boxPosY, boxWidth, boxHeight, 
-                GetTooltipOrientation(member, maxX, maxY)); }, 
+                GetTooltipOrientation(member, maxX, maxY), false); }, 
             function () { ClearTooltip(); }
         );
         shapes.push(nextShape);
@@ -107,6 +108,16 @@ function DrawFamilyTree(eGovernmentText) {
 function GenerateSvg(a) {
     if (r === undefined) {
         return;
+    }
+
+    let maxX = Math.max.apply(Math, familyTree.map(member => member.X));
+    let maxY = Math.max.apply(Math, familyTree.map(member => member.Y));
+    for (let i = 0; i < familyTree.length; i++) {
+        const member = familyTree[i];
+        const box = transparentBoxes[i];
+        let boxProps = box.attr(["x", "y", "width", "height"]);
+        DrawTooltip(r, GetTooltipText(member), boxProps.x, boxProps.y, boxProps.width, boxProps.height, 
+                GetTooltipOrientation(member, maxX, maxY), true); 
     }
 
     let svgOutput = r.toSVG();
