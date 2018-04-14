@@ -54,7 +54,6 @@ function DrawTooltip(r, text, x, y, width, height, orientation, isTransparent) {
             break;
     }
 
-
     // draw text somewhere to get its dimensions
     tooltipText = r.text(bubbleX, bubbleY, text);
 
@@ -108,6 +107,12 @@ function DrawTooltip(r, text, x, y, width, height, orientation, isTransparent) {
     if (isTransparent === true) {
         tooltipShape.attr({ opacity: 0 });
     }
+    
+    const dataName = "class";
+    let dataVal = "" + x + "_" + y;
+    tooltipShape.node.setAttribute(dataName, dataVal);
+    tooltipText.node.setAttribute(dataName, dataVal);
+
     //finally put the text in front
     tooltipText.toFront();
 }

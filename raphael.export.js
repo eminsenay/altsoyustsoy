@@ -172,23 +172,23 @@
 	}
 
 	var serializer = {
-		'text': function(node) {
+		'text': function (node) {
 			var style = extractStyle(node),
 				tags = new Array,
 				textLines = node.attrs['text'].toString().split('\n'),
 				totalLines = textLines.length;
-			
-			map(textLines, function(text, line) {
+
+			map(textLines, function (text, line) {
 				var attrs = reduce(
 					node.attrs,
-					function(initial, value, name) {
-						if ( name !== 'text' && name !== 'w' && name !== 'h' ) {
-							if ( name === 'font-size') value = parseInt(value) + 'px';
+					function (initial, value, name) {
+						if (name !== 'text' && name !== 'w' && name !== 'h') {
+							if (name === 'font-size') value = parseInt(value) + 'px';
 
-							if( name === 'stroke'){
+							if (name === 'stroke') {
 								value = convertToHexColor(value);
 							}
-							
+
 							initial[name] = escapeXML(value.toString());
 						}
 
@@ -202,8 +202,8 @@
 				if (node.node.className.baseVal != "" && node.node.className.baseVal !== undefined) {
 					attrs["class"] = node.node.className.baseVal;
 				}
-				
-                		tags.push(tag(
+
+				tags.push(tag(
 					'text',
 					attrs,
 					node.matrix,
@@ -214,12 +214,18 @@
 			return tags;
 		},
 		'path' : function(node) {
-			var initial = ( node.matrix.a === 1 && node.matrix.d === 1 ) ? {} : { 'transform' : node.matrix.toString() };
+			var initial = (node.matrix.a === 1 && node.matrix.d === 1) ? {} : { 'transform': node.matrix.toString() };
+
+			let attrs = node.attrs;
+			// if path node has a class set, apply it to the attrs object
+			if (node.node.className.baseVal != "" && node.node.className.baseVal !== undefined) {
+				attrs["class"] = node.node.className.baseVal;
+			}
 
 			return tag(
 				'path',
 				reduce(
-					node.attrs,
+					attrs,
 					function(initial, value, name) {
 						if ( name === 'path' ) name = 'd';
 						

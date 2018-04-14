@@ -15,3 +15,4 @@ I'm not very fluent in Javascript, so don't be surprised if you see some awkward
 1. General look and feel
 2. Save as svg
 3. Avoid line passing on top of shapes (other spouses)
+4. Drawing or downloading multiple times causes the everything to be redrawn.
