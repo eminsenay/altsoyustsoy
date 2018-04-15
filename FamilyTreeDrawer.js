@@ -75,6 +75,10 @@ function DrawFamilyTree(eGovernmentText) {
         let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({fill: "red", opacity: 0});
         transparentBox.toFront();
         transparentBoxes.push(transparentBox);
+        let dataVal = "" + boxPosX + "_" + boxPosY;
+        transparentBox.node.setAttribute("class", dataVal);
+        transparentBox.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
+        transparentBox.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
         
         // Add tooltip
         /* global DrawTooltip, ClearTooltip */

@@ -6,18 +6,43 @@
  *
  */
 
-(function(R) {
+(function (R) {
+	
+	var embeddedScript = `
+
+	<script type="text/javascript">
+    /* <![CDATA[ */
+
+    function ShowTooltip(evt, className) {
+        let tooltipObjects = document.getElementsByClassName(className);
+        for (let i = 0; tooltipObjects.length > i; i++) {
+            tooltipObjects[i].setAttribute("opacity", "1");
+        }
+    }
+
+    function HideTooltip(evt, className) {
+        let tooltipObjects = document.getElementsByClassName(className);
+        for (let i = 0; tooltipObjects.length > i; i++) {
+            tooltipObjects[i].setAttribute("opacity", "0");
+        }
+    }
+
+    /* ]]> */
+    </script>
+	
+	`;
+	
 	/**
 	* Escapes string for XML interpolation
 	* @param value string or number value to escape
 	* @returns string escaped
 	*/
 	function escapeXML(s) {
-		if ( typeof s === 'number' ) return s.toString();
+		if (typeof s === 'number') return s.toString();
 
 		var replace = { '<': 'lt', '>': 'gt', '"': 'quot', '\'': 'apos' };
 
-		for ( var entity in replace ) {
+		for (var entity in replace) {
 			s = s.replace(new RegExp(entity, 'g'), '&' + replace[entity] + ';');
 		}
 
@@ -36,19 +61,19 @@
 			i;
 
 		// use an index iteration if we're dealing with an array
-		if( typeof iterable.unshift != 'undefined'){
+		if (typeof iterable.unshift != 'undefined') {
 			var l = iterable.length;
-			for ( i = 0; i < l; i++ ) {
-				if( typeof iterable[i] != undef ){
+			for (i = 0; i < l; i++) {
+				if (typeof iterable[i] != undef) {
 					var value = callback.call(this, iterable[i], i);
-					if( value !== null ) mapped.push(value);
+					if (value !== null) mapped.push(value);
 				}
 			}
 		} else {
-			for ( i in iterable ) {
-				if ( iterable.hasOwnProperty(i) ) {
+			for (i in iterable) {
+				if (iterable.hasOwnProperty(i)) {
 					var value = callback.call(this, iterable[i], i);
-					if ( value !== null ) mapped.push(value);
+					if (value !== null) mapped.push(value);
 				}
 			}
 		}
@@ -64,8 +89,8 @@
 	* @return the reduced value
 	*/
 	function reduce(iterable, callback, initial) {
-		for ( var i in iterable ) {
-			if ( iterable.hasOwnProperty(i) ) {
+		for (var i in iterable) {
+			if (iterable.hasOwnProperty(i)) {
 				initial = callback.call(this, initial, iterable[i], i);
 			}
 		}
@@ -82,21 +107,21 @@
 	* @returns string of the tag
 	*/
 	function tag(name, attrs, matrix, content) {
-		if ( typeof content === 'undefined' || content === null ) {
+		if (typeof content === 'undefined' || content === null) {
 			content = '';
 		}
 
-		if ( typeof attrs === 'object' ) {
-			attrs = map(attrs, function(element, name) {
-				switch ( name ) {
+		if (typeof attrs === 'object') {
+			attrs = map(attrs, function (element, name) {
+				switch (name) {
 					case 'transform':
 						return;
 
 					case 'fill':
-						if ( element.match(/^hsb/) ) {
+						if (element.match(/^hsb/)) {
 							var hsb = element.replace(/^hsb\(|\)$/g, '').split(',');
 
-							if ( hsb.length === 3 ) {
+							if (hsb.length === 3) {
 								element = R.hsb2rgb(hsb[0], hsb[1], hsb[2]).toString();
 							}
 						}
@@ -106,7 +131,7 @@
 			}).join(' ');
 		}
 
-		return '<' + name + ( matrix ? ' transform="matrix(' + matrix.toString().replace(/^matrix\(|\)$/g, '') + ')" ' : ' ' ) + attrs + '>' +  content + '</' + name + '>';
+		return '<' + name + (matrix ? ' transform="matrix(' + matrix.toString().replace(/^matrix\(|\)$/g, '') + ')" ' : ' ') + attrs + '>' + content + '</' + name + '>';
 	}
 
 	/**
@@ -115,8 +140,8 @@
 	function extractStyle(node) {
 		return {
 			font: {
-				family: typeof node.attrs.font === 'undefined' ? null : node.attrs.font.replace(/^.?"(\w+)".$/, '$1'),				
-				size:   typeof node.attrs['font-size'] === 'undefined' ? null : parseInt( node.attrs['font-size'] ),
+				family: typeof node.attrs.font === 'undefined' ? null : node.attrs.font.replace(/^.?"(\w+)".$/, '$1'),
+				size: typeof node.attrs['font-size'] === 'undefined' ? null : parseInt(node.attrs['font-size']),
 				style: typeof node.attrs['font-style'] === 'undefined' ? null : node.attrs['font-style'],
 				weight: typeof node.attrs['font-weight'] === 'undefined' ? null : node.attrs['font-weight']
 			},
@@ -133,28 +158,28 @@
 		// Tyler: it refers to the default inherited from CSS. Order of terms here:
 		// 		  http://www.w3.org/TR/SVG/text.html#FontProperty
 		var norm = 'normal',
-			textAnchor = 'text-anchor: ' + ( style.anchor || 'middle' ) + '; ',
+			textAnchor = 'text-anchor: ' + (style.anchor || 'middle') + '; ',
 			font = style.font;
 		// return 'font: normal normal normal 10px/normal ' + style.font.family + ( style.font.size === null ? '' : '; font-size: ' + style.font.size + 'px' );
-		return textAnchor + [ 'font:',
-		         (font.style || norm), // font-style (e.g. italic)
-		         norm, // font-variant
-		         (font.weight || norm), // font-weight (e.g. bold)
-		         (font.size ? font.size + 'px' : '10px') + '/normal', // font-size/IGNORED line-height!
-		         font.family ].join(' ');
+		return textAnchor + ['font:',
+			(font.style || norm), // font-style (e.g. italic)
+			norm, // font-variant
+			(font.weight || norm), // font-weight (e.g. bold)
+			(font.size ? font.size + 'px' : '10px') + '/normal', // font-size/IGNORED line-height!
+			font.family].join(' ');
 	}
-	
+
 	/**
 	 * repairs the hex color which missed the '#'
 	 * @param any string
 	 * @return hexvalue of rgb
 	 */
 	function convertToHexColor(value) {
-		
-		if(/^[0-9A-F]{6}$/i.test(value)){
+
+		if (/^[0-9A-F]{6}$/i.test(value)) {
 			value = '#' + value;
 		}
-		
+
 		return value;
 	}
 
@@ -165,10 +190,10 @@
 	* @return number
 	*/
 	function computeTSpanDy(fontSize, line, lines) {
-		if ( fontSize === null ) fontSize = 10;
+		if (fontSize === null) fontSize = 10;
 
 		//return fontSize * 4.5 / 13
-		return fontSize * 4.5 / 13 * ( line - .2 - lines / 2 ) * 3.5;
+		return fontSize * 4.5 / 13 * (line - .2 - lines / 2) * 3.5;
 	}
 
 	var serializer = {
@@ -213,7 +238,7 @@
 
 			return tags;
 		},
-		'path' : function(node) {
+		'path': function (node) {
 			var initial = (node.matrix.a === 1 && node.matrix.d === 1) ? {} : { 'transform': node.matrix.toString() };
 
 			let attrs = node.attrs;
@@ -226,13 +251,13 @@
 				'path',
 				reduce(
 					attrs,
-					function(initial, value, name) {
-						if ( name === 'path' ) name = 'd';
-						
-						if( name === 'stroke'){
+					function (initial, value, name) {
+						if (name === 'path') name = 'd';
+
+						if (name === 'stroke') {
 							value = convertToHexColor(value);
 						}
-						
+
 						initial[name] = value.toString();
 
 						return initial;
@@ -240,62 +265,61 @@
 					{}
 				),
 				node.matrix
-				);
+			);
 		}
 		// Other serializers should go here
 	};
 
-	R.fn.toSVG = function() {
-		var
-			paper   = this,
-			restore = { svg: R.svg, vml: R.vml },
-			svg     = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + paper.width + '" version="1.1" height="' + paper.height + '">'
-			;
+	R.fn.toSVG = function () {
+		var paper = this;
+		var restore = { svg: R.svg, vml: R.vml };
+		var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + 
+			paper.width + '" version="1.1" height="' + paper.height + '">' + "\n" + embeddedScript;
 
 		R.svg = true;
 		R.vml = false;
 
-		for ( var node = paper.bottom; node != null; node = node.next ) {
-			if ( node.node.style.display === 'none' ) continue;
+		for (var node = paper.bottom; node != null; node = node.next) {
+			if (node.node.style.display === 'none') continue;
 
 			var attrs = '';
 
 			// Use serializer
-			if ( typeof serializer[node.type] === 'function' ) {
+			if (typeof serializer[node.type] === 'function') {
 				svg += serializer[node.type](node);
 
 				continue;
 			}
 
-			switch ( node.type ) {
+			switch (node.type) {
 				case 'image':
 					attrs += ' preserveAspectRatio="none"';
 					break;
 			}
 
-			for ( i in node.attrs ) {
+			for (i in node.attrs) {
 				var name = i;
 				var value = '';
 
-				switch ( i ) {
+				switch (i) {
 					case 'r':
 						// see https://github.com/ElbertF/Raphael.Export/issues/40
 						if (node.type != "rect") {
 							break;
 						}
-						
+
 						/**
 						 * set 'rx' and 'ry' to 'r'
 						*/
 						value = node.attrs.r;
 						node.attrs.rx = value;
 						node.attrs.ry = value;
-						
+
 						/**
 						 * skip adding the 'r' attribute
 						*/
 						continue;
-					
+
 					case 'src':
 						name = 'xlink:href';
 
@@ -307,103 +331,103 @@
 
 					case 'fill':
 						//skip if there is any gradient
-						if(node.attrs.gradient)
+						if (node.attrs.gradient)
 							continue;
 						break;
 					case 'gradient':
 						//radial gradient
 						var id = node.id;
 						var gradient = node.attrs.gradient;
-						var fx = 0.5, fy=0.5;
+						var fx = 0.5, fy = 0.5;
 						gradient = String(gradient).replace(R._radial_gradient, function (all, _fx, _fy) {
-			                type = "radial";
-			                if (_fx && _fy) {
-			                    fx = parseFloat(_fx);
-			                    fy = parseFloat(_fy);
-			                    var dir = ((fy > .5) * 2 - 1);
-			                    Math.pow(fx - .5, 2) + Math.pow(fy - .5, 2) > .25 &&
-			                        (fy = Math.sqrt(.25 - Math.pow(fx - .5, 2)) * dir + .5) &&
-			                        fy != .5 &&
-			                        (fy = fy.toFixed(5) - 1e-5 * dir);
-			                }
-			                return '';
-			            });
+							type = "radial";
+							if (_fx && _fy) {
+								fx = parseFloat(_fx);
+								fy = parseFloat(_fy);
+								var dir = ((fy > .5) * 2 - 1);
+								Math.pow(fx - .5, 2) + Math.pow(fy - .5, 2) > .25 &&
+									(fy = Math.sqrt(.25 - Math.pow(fx - .5, 2)) * dir + .5) &&
+									fy != .5 &&
+									(fy = fy.toFixed(5) - 1e-5 * dir);
+							}
+							return '';
+						});
 						gradient = gradient.split(/\s*\-\s*/);
-						if(node.attrs.gradient.match(/^r/g)){
+						if (node.attrs.gradient.match(/^r/g)) {
 							var dots = R._parseDots(gradient);
 							if (!dots) {
-				                continue;
-				            }	
+								continue;
+							}
 							svg += '<defs>';
-							svg += '	    <radialGradient id="radialgradient'+id+'" fx="'+fx+'" fy="'+fy+'" >';
+							svg += '	    <radialGradient id="radialgradient' + id + '" fx="' + fx + '" fy="' + fy + '" >';
 
-							for(var di = 0; di < dots.length; di++){
-								var offset = (di/(dots.length-1) * 100)+'%';
+							for (var di = 0; di < dots.length; di++) {
+								var offset = (di / (dots.length - 1) * 100) + '%';
 								//if dot has an offset
-								if(dots[di].offset)							
+								if (dots[di].offset)
 									offset = dots[di].offset;
-								svg +=  '<stop stop-color="'+dots[di].color+'" offset="'+offset+'"/>';
+								svg += '<stop stop-color="' + dots[di].color + '" offset="' + offset + '"/>';
 							}
 							svg += '    </radialGradient>';
 							svg += '</defs>';
 
 							name = 'fill';
-							value = 'url(#radialgradient'+id+')';
+							value = 'url(#radialgradient' + id + ')';
 
-						}else{//linear gradient
+						} else {//linear gradient
 
 							//assuming gradient is validated already!!
 							var angle = gradient.shift();
-							angle = parseFloat(angle)*-1;
-			                if (isNaN(angle)) {
-			                   continue; 
-			                }
+							angle = parseFloat(angle) * -1;
+							if (isNaN(angle)) {
+								continue;
+							}
 							var dots = R._parseDots(gradient);
 							if (!dots) {
-				                continue;
-				            }
-				            var vector = [0, 0, Math.cos(R.rad(angle)), Math.sin(R.rad(angle))],
-			                       max = 1 / (Math.max(Math.abs(vector[2]), Math.abs(vector[3])) || 1);
-			                vector[2] *= max;
-			                vector[3] *= max;
-			                if (vector[2] < 0) {
-			                    vector[0] = -vector[2];
-			                    vector[2] = 0;
-			                }
-			                if (vector[3] < 0) {
-			                    vector[1] = -vector[3];
-			                    vector[3] = 0;
-			                }
+								continue;
+							}
+							var vector = [0, 0, Math.cos(R.rad(angle)), Math.sin(R.rad(angle))],
+								max = 1 / (Math.max(Math.abs(vector[2]), Math.abs(vector[3])) || 1);
+							vector[2] *= max;
+							vector[3] *= max;
+							if (vector[2] < 0) {
+								vector[0] = -vector[2];
+								vector[2] = 0;
+							}
+							if (vector[3] < 0) {
+								vector[1] = -vector[3];
+								vector[3] = 0;
+							}
 
-				            svg += '<defs>';
-							svg += '	    <linearGradient id="lineargradient'+id+'" x1="'+vector[0]+'" y1="'+vector[1]+'" x2="'+vector[2]+'" y2="'+vector[3]+'">';
+							svg += '<defs>';
+							svg += '	    <linearGradient id="lineargradient' + id + '" x1="' + vector[0] + '" y1="' + vector[1] + '" x2="' + vector[2] + '" y2="' + vector[3] + '">';
 
-							for(var di = 0; di < dots.length; di++){
-								var offset = (di/(dots.length-1) * 100)+'%';
+							for (var di = 0; di < dots.length; di++) {
+								var offset = (di / (dots.length - 1) * 100) + '%';
 								//if dot has an offset
-								if(dots[di].offset)							
+								if (dots[di].offset)
 									offset = dots[di].offset;
-								svg +=  '<stop stop-color="'+dots[di].color+'" offset="'+offset+'"/>';
+								svg += '<stop stop-color="' + dots[di].color + '" offset="' + offset + '"/>';
 							}
 							svg += '    </linearGradient>';
 							svg += '</defs>';
 
 							name = 'fill';
-							value = 'url(#lineargradient'+id+')';
+							value = 'url(#lineargradient' + id + ')';
 
 						}
 						break;
 					case 'stroke':
-						if(value){
+						if (value) {
 							value = convertToHexColor(value);
-						}else{
+						} else {
 							value = convertToHexColor(node.attrs[i].toString());
 						}
 						break;
 				}
 
-				if ( name ) {
-					if(value)
+				if (name) {
+					if (value)
 						attrs += ' ' + name + '="' + escapeXML(value) + '"';
 					else
 						attrs += ' ' + name + '="' + escapeXML(node.attrs[i].toString()) + '"';
@@ -416,6 +440,9 @@
 			if (node.node.className.baseVal != "") {
 				attrs += ' ' + 'class="' + node.node.className.baseVal + '"';
 			}
+			// if (node.node.onmouseover != null) {
+			// 	attrs += ' ' + 'onmouseover="' + node.node.className.baseVal + '"';
+			// }
 
 			svg += '<' + node.type + ' transform="matrix(' + node.matrix.toString().replace(/^matrix\(|\)$/g, '') + ')"' + attrs + '></' + node.type + '>';
 		}
