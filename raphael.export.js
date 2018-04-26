@@ -239,7 +239,7 @@
 			return tags;
 		},
 		'path': function (node) {
-			var initial = (node.matrix.a === 1 && node.matrix.d === 1) ? {} : { 'transform': node.matrix.toString() };
+			//var initial = (node.matrix.a === 1 && node.matrix.d === 1) ? {} : { 'transform': node.matrix.toString() };
 
 			let attrs = node.attrs;
 			// if path node has a class set, apply it to the attrs object
@@ -297,7 +297,7 @@
 					break;
 			}
 
-			for (i in node.attrs) {
+			for (let i in node.attrs) {
 				var name = i;
 				var value = '';
 
@@ -340,7 +340,7 @@
 						var gradient = node.attrs.gradient;
 						var fx = 0.5, fy = 0.5;
 						gradient = String(gradient).replace(R._radial_gradient, function (all, _fx, _fy) {
-							type = "radial";
+							//type = "radial";
 							if (_fx && _fy) {
 								fx = parseFloat(_fx);
 								fy = parseFloat(_fy);
@@ -434,15 +434,19 @@
 				}
 			}
 
+			if (typeof node.node.onmouseover === 'function') {
+				attrs += ' onmouseover="' + escapeXML(node.node.attributes.onmouseover.nodeValue) + '"';
+			}
+			if (typeof node.node.onmouseout === 'function') {
+				attrs += ' onmouseout="' + escapeXML(node.node.attributes.onmouseout.nodeValue) + '"';
+			}
+
 			/**
 			 * if node has a class set, append it to the attrs string
 		    */
 			if (node.node.className.baseVal != "") {
 				attrs += ' ' + 'class="' + node.node.className.baseVal + '"';
 			}
-			// if (node.node.onmouseover != null) {
-			// 	attrs += ' ' + 'onmouseover="' + node.node.className.baseVal + '"';
-			// }
 
 			svg += '<' + node.type + ' transform="matrix(' + node.matrix.toString().replace(/^matrix\(|\)$/g, '') + ')"' + attrs + '></' + node.type + '>';
 		}

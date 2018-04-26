@@ -76,7 +76,6 @@ function DrawFamilyTree(eGovernmentText) {
         transparentBox.toFront();
         transparentBoxes.push(transparentBox);
         let dataVal = "" + boxPosX + "_" + boxPosY;
-        transparentBox.node.setAttribute("class", dataVal);
         transparentBox.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
         transparentBox.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
         
