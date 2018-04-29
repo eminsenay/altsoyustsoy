@@ -22,12 +22,21 @@ function DrawFamilyTree(eGovernmentText) {
     // Find relative coordinates of the family members
     FindCoordinates(familyTree);
 
+    DrawFamilyTreeInternal(familyTree, "holder");
+}
+
+/**
+ * Internal method which actually draws the family tree.
+ * @param {Array} familyTree Family tree.
+ * @param {string} holder Id of the html element which will contain the family tree.
+ */
+function DrawFamilyTreeInternal(familyTree, holder) {
     // Initialize Raphäel
     /*global Raphael */
-    r = Raphael("holder", 100, 100);
+    r = Raphael(holder, 100, 100);
 
     // Draw texts and determine the size of each box
-    var shapes = [], texts = [];
+    let texts = [];
     let maxTextWidth = 0;
     for (let i = 0; i < familyTree.length; i++) {
         const member = familyTree[i];
@@ -53,6 +62,7 @@ function DrawFamilyTree(eGovernmentText) {
     pl + pr = padding
     hbs: horizontal box spacing
     */
+    let shapes = [];
     const boxHeight = 40, horizontalBoxSpacing = 30, verticalBoxSpacing = 40, padding = 10;
     const boxWidth = maxTextWidth + padding;
     let maxX = Math.max.apply(Math, familyTree.map(member => member.X));
@@ -72,18 +82,20 @@ function DrawFamilyTree(eGovernmentText) {
         }
         // Draw a transparent box with the same size as the original box and bring it to front, 
         // so that hover works also when the mouse pointer is over the text inside the box.
-        let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({fill: "red", opacity: 0});
+        let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({ fill: "red", opacity: 0 });
         transparentBox.toFront();
         transparentBoxes.push(transparentBox);
         let dataVal = "" + boxPosX + "_" + boxPosY;
         transparentBox.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
         transparentBox.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
-        
+
         // Add tooltip
         /* global DrawTooltip, ClearTooltip */
         transparentBox.hover(
-            function () { DrawTooltip(r, GetTooltipText(member), boxPosX, boxPosY, boxWidth, boxHeight, 
-                GetTooltipOrientation(member, maxX, maxY), false); }, 
+            function () {
+                DrawTooltip(r, GetTooltipText(member), boxPosX, boxPosY, boxWidth, boxHeight,
+                    GetTooltipOrientation(member, maxX, maxY), false);
+            },
             function () { ClearTooltip(); }
         );
         shapes.push(nextShape);
