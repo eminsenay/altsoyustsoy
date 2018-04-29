@@ -13,6 +13,6 @@ I'm not very fluent in Javascript, so don't be surprised if you see some awkward
 ## TODOs & Bugs & Known Issues 
 
 1. General look and feel
-2. Save as svg &rarr; Dashed boxes and redrawing instead of modifying the original raphael
+2. Save as svg &rarr; Redrawing instead of modifying the original raphael
 3. Avoid line passing on top of shapes (other spouses)
 4. Drawing or downloading multiple times causes the everything to be redrawn.

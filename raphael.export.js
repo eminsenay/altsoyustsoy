@@ -424,6 +424,11 @@
 							value = convertToHexColor(node.attrs[i].toString());
 						}
 						break;
+					case 'stroke-dasharray':
+						if (node.attrs['stroke-dasharray'] === '. ') {
+							value = '1,3';
+						}
+						break;
 				}
 
 				if (name) {
