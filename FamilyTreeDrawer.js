@@ -4,12 +4,9 @@
     this.GenerateSvg = GenerateSvg;
 }();
 
-// Global Raphäel object
-var r;
 // Global Family Tree
 var familyTree;
-// Global transparent Boxes
-var transparentBoxes = [];
+
 /**
  * Draws the family tree using Raphaeljs.
  * @param {string} eGovernmentText Full text of the related eGovernment page
@@ -26,14 +23,24 @@ function DrawFamilyTree(eGovernmentText) {
 }
 
 /**
- * Internal method which actually draws the family tree.
+ * Internal method which actually draws the family tree. 
+ * Returns an aray which contains the raphael object and 
+ * an array of the transparent boxes which are drawn on top of the real boxes and family member names.
  * @param {Array} familyTree Family tree.
  * @param {string} holder Id of the html element which will contain the family tree.
  */
 function DrawFamilyTreeInternal(familyTree, holder) {
-    // Initialize Raphäel
-    /*global Raphael */
-    r = Raphael(holder, 100, 100);
+    
+    // check & clear the holder
+    let holderElem = document.getElementById(holder);
+    if (holderElem === undefined) {
+        return;
+    }
+    holderElem.innerHTML = "";
+
+    // Initialize Raphaël
+    /* global Raphael */
+    let r = Raphael(holder, 100, 100);
 
     // Draw texts and determine the size of each box
     let texts = [];
@@ -63,6 +70,7 @@ function DrawFamilyTreeInternal(familyTree, holder) {
     hbs: horizontal box spacing
     */
     let shapes = [];
+    let transparentBoxes = [];
     const boxHeight = 40, horizontalBoxSpacing = 30, verticalBoxSpacing = 40, padding = 10;
     const boxWidth = maxTextWidth + padding;
     let maxX = Math.max.apply(Math, familyTree.map(member => member.X));
@@ -85,9 +93,6 @@ function DrawFamilyTreeInternal(familyTree, holder) {
         let transparentBox = r.rect(boxPosX, boxPosY, boxWidth, boxHeight, 10).attr({ fill: "red", opacity: 0 });
         transparentBox.toFront();
         transparentBoxes.push(transparentBox);
-        let dataVal = "" + boxPosX + "_" + boxPosY;
-        transparentBox.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
-        transparentBox.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
 
         // Add tooltip
         /* global DrawTooltip, ClearTooltip */
@@ -114,6 +119,8 @@ function DrawFamilyTreeInternal(familyTree, holder) {
 
     // Draw connections between boxes
     DrawConnections(familyTree, r);
+
+    return [r, transparentBoxes];
 }
 
 /**
@@ -121,9 +128,13 @@ function DrawFamilyTreeInternal(familyTree, holder) {
  * @param {Object} a html a element to be hrefed.
  */
 function GenerateSvg(a) {
-    if (r === undefined) {
+    if (familyTree === undefined) {
         return;
     }
+
+    let arr = DrawFamilyTreeInternal(familyTree, "resultsvg");
+    let r = arr[0];
+    let transparentBoxes = arr[1];
 
     let maxX = Math.max.apply(Math, familyTree.map(member => member.X));
     let maxY = Math.max.apply(Math, familyTree.map(member => member.Y));
@@ -131,12 +142,22 @@ function GenerateSvg(a) {
         const member = familyTree[i];
         const box = transparentBoxes[i];
         let boxProps = box.attr(["x", "y", "width", "height"]);
+        
+        let dataVal = "" + boxProps.x + "_" + boxProps.y;
+        box.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
+        box.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
+
         DrawTooltip(r, GetTooltipText(member), boxProps.x, boxProps.y, boxProps.width, boxProps.height, 
                 GetTooltipOrientation(member, maxX, maxY), true); 
     }
 
     let svgOutput = r.toSVG();
-    a.download = 'mySvg.svg';
+    let own = familyTree.find(x => x.YakinlikDerecesi === "kendisi");
+    let fileName = "soyağacı.svg";
+    if (own !== undefined) {
+        fileName = own.Adi + " " + own.Soyadi + " soyağacı.svg";
+    }
+    a.download = fileName;
     a.type = 'image/svg+xml';
     let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
     var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL || function(){};

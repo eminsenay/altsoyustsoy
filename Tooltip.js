@@ -7,7 +7,7 @@ var tooltipText, tooltipShape;
 
 /**
  * Draws a tooltip at the given coordinates and the text.
- * @param {Object} r Raphäel object for drawing
+ * @param {Object} r Raphaël object for drawing
  * @param {string} text Text to be displayed at the tooltip
  * @param {number} x X coordinate of the tooltip shape
  * @param {number} y Y coordinate of the tooltip shape
