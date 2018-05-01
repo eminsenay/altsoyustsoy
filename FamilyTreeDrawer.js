@@ -299,28 +299,87 @@ function DrawConnections(familyTree, r) {
         const member = familyTree[i];
         let fatherFound = false;
         let motherFound = false;
+        let spouseConnectionDrawn = false;
         if (member.Baba !== undefined) {
             fatherFound = true;
-            r.connection(member.Shape, member.Baba.Shape, "#000");
+            r.connection(member.Shape, member.Baba.Shape, "#000", "", false);
             if (member.Baba.OtherSpouses !== undefined) {
-                member.Baba.OtherSpouses.forEach(spouse => {
-                    r.connection(member.Baba.Shape, spouse.Shape, "#000");
+                let allSpouses = member.Baba.OtherSpouses.slice();
+                if (member.Anne !== undefined) {
+                    allSpouses.push(member.Anne);
+                    spouseConnectionDrawn = true;
+                }
+                allSpouses.sort(function(a, b) {
+                    return a.Shape.getBBox().x - b.Shape.getBBox().x;
                 });
+                if (member.Baba.Shape.connected === undefined) {
+                    member.Baba.Shape.connected = {};
+                }
+                // Draw a direct line with the nearest spouse if not already drawn
+                if (member.Baba.Shape.connected[allSpouses[0].Shape.id] === undefined) {
+                    r.connection(member.Baba.Shape, allSpouses[0].Shape, "#000", "", false);
+                    member.Baba.Shape.connected[allSpouses[0].Shape.id] = true;
+                    if (allSpouses[0].Shape.connected === undefined) {
+                        allSpouses[0].Shape.connected = {};
+                    }
+                    allSpouses[0].Shape.connected[member.Baba.Shape.id] = true;
+                }
+                for (let i = 1; i < allSpouses.length; i++) {
+                    const spouse = allSpouses[i];
+                    if (member.Baba.Shape.connected[spouse.Shape.id] === undefined) {
+                        // Draw a line avoiding the other spouse boxes 
+                        r.connection(member.Baba.Shape, spouse.Shape, "#000", "", true);
+                        member.Baba.Shape.connected[spouse.Shape.id] = true;
+                        if (spouse.Shape.connected === undefined) {
+                            spouse.Shape.connected = {};
+                        }
+                        spouse.Shape.connected[member.Baba.Shape.id] = true;
+                    }
+                }
             }
         }
         if (member.Anne !== undefined) {
             motherFound = true;
             if (!fatherFound) {
-                r.connection(member.Shape, member.Anne.Shape, "#000");
+                r.connection(member.Shape, member.Anne.Shape, "#000", "", false);
             }
             if (member.Anne.OtherSpouses !== undefined) {
-                member.Anne.OtherSpouses.forEach(spouse => {
-                    r.connection(member.Anne.Shape, spouse.Shape, "#000");
+                let allSpouses = member.Anne.OtherSpouses.slice();
+                if (member.Baba !== undefined) {
+                    allSpouses.push(member.Baba);
+                    spouseConnectionDrawn = true;
+                }
+                allSpouses.sort(function(a, b) {
+                    return a.Shape.getBBox().x - b.Shape.getBBox().x;
                 });
+                if (member.Anne.Shape.connected === undefined) {
+                    member.Anne.Shape.connected = {};
+                }
+                // Draw a direct line with the nearest spouse if not already drawn
+                if (member.Anne.Shape.connected[allSpouses[0].Shape.id] === undefined) {
+                    r.connection(member.Anne.Shape, allSpouses[0].Shape, "#000", "", false);
+                    member.Anne.Shape.connected[allSpouses[0].Shape.id] = true;
+                    if (allSpouses[0].Shape.connected === undefined) {
+                        allSpouses[0].Shape.connected = {};
+                    }
+                    allSpouses[0].Shape.connected[member.Anne.Shape.id] = true;
+                }
+                for (let i = 1; i < allSpouses.length; i++) {
+                    const spouse = allSpouses[i];
+                    if (member.Anne.Shape.connected[spouse.Shape.id] === undefined) {
+                        // Draw a line avoiding the other spouse boxes 
+                        r.connection(member.Anne.Shape, spouse.Shape, "#000", "", true);
+                        member.Anne.Shape.connected[spouse.Shape.id] = true;
+                        if (spouse.Shape.connected === undefined) {
+                            spouse.Shape.connected = {};
+                        }
+                        spouse.Shape.connected[member.Anne.Shape.id] = true;
+                    }
+                }
             }
         }
-        if (fatherFound && motherFound) {
-            r.connection(member.Baba.Shape, member.Anne.Shape, "#000");
+        if (fatherFound && motherFound && !spouseConnectionDrawn) {
+            r.connection(member.Baba.Shape, member.Anne.Shape, "#000", "", false);
         }
     }
 }

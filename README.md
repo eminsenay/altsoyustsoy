@@ -13,4 +13,3 @@ I'm not very fluent in Javascript, so don't be surprised if you see some awkward
 ## TODOs & Bugs & Known Issues 
 
 1. General look and feel
-2. Avoid line passing on top of shapes (other spouses)

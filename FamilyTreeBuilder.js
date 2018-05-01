@@ -309,6 +309,11 @@ function BuildOtherSpouses(familyTree) {
                 if (strToSearch != finalStr) {
                     continue;
                 }
+                // avoid marking people with same gender as spouses (not possible in Turkey for now)
+                if (person.YakinlikDerecesi.slice(lastSpaceIndex + 1) ==
+                 nextPerson.YakinlikDerecesi.slice(lastSpaceIndex + 1)) {
+                    continue;
+                }
 
                 if (nextPerson.OtherSpouses === undefined) {
                     nextPerson.OtherSpouses = [person];
