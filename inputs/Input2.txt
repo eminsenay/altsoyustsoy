@@ -1,232 +1,232 @@
-İçeriğe Git Ana Sayfa
-e-Devlet Kapısı
-Ana Bölümler
+Ä°Ã§eriÄŸe Git Ana Sayfa
+e-Devlet KapÄ±sÄ±
+Ana BÃ¶lÃ¼mler
  
 Aranan Terim
 
-Size nasıl yardım edebilirim?
- GÖKAY 1
+Size nasÄ±l yardÄ±m edebilirim?
+ GÃ–KAY 1
 Ana Sayfa
  
-Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü
- Alt-Üst Soy Bilgisi Sorgulama
+NÃ¼fus ve VatandaÅŸlÄ±k Ä°ÅŸleri Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼
+ Alt-Ãœst Soy Bilgisi Sorgulama
 
-Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü
-Alt-Üst Soy Bilgisi Sorgulama
+NÃ¼fus ve VatandaÅŸlÄ±k Ä°ÅŸleri Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼
+Alt-Ãœst Soy Bilgisi Sorgulama
 Puanla / Sorun Bildir 
 Favoriler'e Ekle 
-Paylaş Twitter Facebook
-Bu hizmet Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü işbirliği ile e-Devlet Kapısı altyapısı üzerinden sunulmaktadır.
-Yazdır
+PaylaÅŸ Twitter Facebook
+Bu hizmet NÃ¼fus ve VatandaÅŸlÄ±k Ä°ÅŸleri Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼ iÅŸbirliÄŸi ile e-Devlet KapÄ±sÄ± altyapÄ±sÄ± Ã¼zerinden sunulmaktadÄ±r.
+YazdÄ±r
 T.C.
-İÇİŞLERİ BAKANLIĞI
-NÜFUS VE VATANDAŞLIK İŞLERİ GENEL MÜDÜRLÜĞÜ
-ALT ÜST SOY BELGESİ
-Sıra	C	Yakınlık Derecesi	Adı	Soyadı	Baba Adı	Ana Adı	Doğum Yeri ve Tarihi	İl-İlçe-Mahalle/Köy	Cilt-Hane-Birey Sıra No	Medeni Hali	Durumu
-1	E	Annesinin Annesinin Babasının Babasının Babası	MERT	-	VELİ	AYTEN	GÜMÜŞHANE
-01/07/1839	GÜMÜŞHANE/
+Ä°Ã‡Ä°ÅLERÄ° BAKANLIÄI
+NÃœFUS VE VATANDAÅLIK Ä°ÅLERÄ° GENEL MÃœDÃœRLÃœÄÃœ
+ALT ÃœST SOY BELGESÄ°
+SÄ±ra	C	YakÄ±nlÄ±k Derecesi	AdÄ±	SoyadÄ±	Baba AdÄ±	Ana AdÄ±	DoÄŸum Yeri ve Tarihi	Ä°l-Ä°lÃ§e-Mahalle/KÃ¶y	Cilt-Hane-Birey SÄ±ra No	Medeni Hali	Durumu
+1	E	Annesinin Annesinin BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±	MERT	-	VELÄ°	AYTEN	GÃœMÃœÅHANE
+01/07/1839	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	7-44-11	Evli	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	7-44-11	Evli	Ã–lÃ¼m
 23/09/1908
-2	K	Babasının Babasının Annesinin Babasının Annesi	FİLİZ	GÜN	İSMET	MELİKE	BİLECİK
-01/07/1839	GÜMÜŞHANE/
+2	K	BabasÄ±nÄ±n BabasÄ±nÄ±n Annesinin BabasÄ±nÄ±n Annesi	FÄ°LÄ°Z	GÃœN	Ä°SMET	MELÄ°KE	BÄ°LECÄ°K
+01/07/1839	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	112-3-1	Dul	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	112-3-1	Dul	Ã–lÃ¼m
 10/11/1918
-3	K	Annesinin Annesinin Babasının Babasının Annesi	AYTEN	-	HÜSNÜ	ZEYNEP	GÜMÜŞHANE
-01/07/1844	GÜMÜŞHANE/
+3	K	Annesinin Annesinin BabasÄ±nÄ±n BabasÄ±nÄ±n Annesi	AYTEN	-	HÃœSNÃœ	ZEYNEP	GÃœMÃœÅHANE
+01/07/1844	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	7-41-2	Dul	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	7-41-2	Dul	Ã–lÃ¼m
 18/06/1906
-4	E	Babasının Babasının Babasının Babasının Babası	BİLAL	-	MEMİŞ	MİLAT	BİLECİK
-01/07/1844	GÜMÜŞHANE/
+4	E	BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±	BÄ°LAL	-	MEMÄ°Å	MÄ°LAT	BÄ°LECÄ°K
+01/07/1844	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-134-21	Evli	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-134-21	Evli	Ã–lÃ¼m
 20/08/1922
-5	K	Babasının Babasının Babasının Babasının Annesi	AYTEN	KORKUT	HÜSNÜ	NAİLE	TUNCELİ
-01/07/1854	GÜMÜŞHANE/
+5	K	BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±nÄ±n Annesi	AYTEN	KORKUT	HÃœSNÃœ	NAÄ°LE	TUNCELÄ°
+01/07/1854	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-114-44	Dul	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-114-44	Dul	Ã–lÃ¼m
 03/01/1943
-6	E	Annesinin Babasının Babasının Babası	BİLAL	GAYRET	MERT	ZEYNEP	GÜMÜŞHANE
-01/07/1858	GÜMÜŞHANE/
+6	E	Annesinin BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±	BÄ°LAL	GAYRET	MERT	ZEYNEP	GÃœMÃœÅHANE
+01/07/1858	GÃœMÃœÅHANE/
 Didim/
-DİKENCE MAHALLESİ	25-3-11	Evli	Ölüm
+DÄ°KENCE MAHALLESÄ°	25-3-11	Evli	Ã–lÃ¼m
 10/07/1940
-7	E	Babasının Babasının Annesinin Babası	HÜSNÜ	-	DURSUN	FİLİZ	BİLECİK
-01/07/1859	GÜMÜŞHANE/
+7	E	BabasÄ±nÄ±n BabasÄ±nÄ±n Annesinin BabasÄ±	HÃœSNÃœ	-	DURSUN	FÄ°LÄ°Z	BÄ°LECÄ°K
+01/07/1859	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	14-46-11	Evli	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	14-46-11	Evli	Ã–lÃ¼m
 -
-8	E	Annesinin Annesinin Babasının Babası	VELİ MURAT	-	MERT	AYTEN	GÜMÜŞHANE
-01/07/1867	GÜMÜŞHANE/
+8	E	Annesinin Annesinin BabasÄ±nÄ±n BabasÄ±	VELÄ° MURAT	-	MERT	AYTEN	GÃœMÃœÅHANE
+01/07/1867	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	4-44-2	Evli	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	4-44-2	Evli	Ã–lÃ¼m
 02/08/1909
-9	E	Babasının Annesinin Annesinin Babası	RECEP	-	MUHAMMET	ZEYNEP	GÜMÜŞHANE
-01/07/1868	GÜMÜŞHANE/
+9	E	BabasÄ±nÄ±n Annesinin Annesinin BabasÄ±	RECEP	-	MUHAMMET	ZEYNEP	GÃœMÃœÅHANE
+01/07/1868	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	8-8-11	Evli	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	8-8-11	Evli	Ã–lÃ¼m
 -
-10	K	Babasının Babasının Annesinin Annesi	HOŞNUT	GÜN	AHMET	DİCLE	BİLECİK
-01/07/1872	GÜMÜŞHANE/
+10	K	BabasÄ±nÄ±n BabasÄ±nÄ±n Annesinin Annesi	HOÅNUT	GÃœN	AHMET	DÄ°CLE	BÄ°LECÄ°K
+01/07/1872	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-61-28	Dul	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-61-28	Dul	Ã–lÃ¼m
 26/02/1954
-11	K	Babasının Annesinin Annesinin Annesi	DİLARA	-	HÜSNÜ	ZEYNEP	GÜMÜŞHANE
-01/07/1878	GÜMÜŞHANE/
+11	K	BabasÄ±nÄ±n Annesinin Annesinin Annesi	DÄ°LARA	-	HÃœSNÃœ	ZEYNEP	GÃœMÃœÅHANE
+01/07/1878	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	8-1-41	Dul	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	8-1-41	Dul	Ã–lÃ¼m
 02/04/1924
-12	E	Babasının Annesinin Babasının Babası	GÜNEY	-	MERT	FİLİZ	GÜMÜŞHANE
-01/07/1880	GÜMÜŞHANE/
+12	E	BabasÄ±nÄ±n Annesinin BabasÄ±nÄ±n BabasÄ±	GÃœNEY	-	MERT	FÄ°LÄ°Z	GÃœMÃœÅHANE
+01/07/1880	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	3-81-12	Evli	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	3-81-12	Evli	Ã–lÃ¼m
 03/05/1912
-13	K	Annesinin Annesinin Babasının Annesi	AYTEN	-	HASAN	ŞEKER	GÜMÜŞHANE
-01/07/1881	GÜMÜŞHANE/
+13	K	Annesinin Annesinin BabasÄ±nÄ±n Annesi	AYTEN	-	HASAN	ÅEKER	GÃœMÃœÅHANE
+01/07/1881	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	42-6-84	Dul	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	42-6-84	Dul	Ã–lÃ¼m
 -
-14	K	Babasının Annesinin Babasının Annesi	FİLİZ	RAHMAN	DURMUŞ	MELİSA	GÜMÜŞHANE
-01/07/1881	GÜMÜŞHANE/
+14	K	BabasÄ±nÄ±n Annesinin BabasÄ±nÄ±n Annesi	FÄ°LÄ°Z	RAHMAN	DURMUÅ	MELÄ°SA	GÃœMÃœÅHANE
+01/07/1881	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	8-2-31	Dul	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	8-2-31	Dul	Ã–lÃ¼m
 18/03/1956
-15	E	Babasının Babasının Babasının Babası	SÜLEYMAN	-	BİLAL	AYTEN	BİLECİK
-01/07/1881	GÜMÜŞHANE/
+15	E	BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±	SÃœLEYMAN	-	BÄ°LAL	AYTEN	BÄ°LECÄ°K
+01/07/1881	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	14-114-23	Evli	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	14-114-23	Evli	Ã–lÃ¼m
 -
-16	K	Annesinin Annesinin Annesinin Annesi	MELİSA	-	HÜSNÜ	HANİFE	GÜMÜŞHANE
-01/07/1885	GÜMÜŞHANE/
+16	K	Annesinin Annesinin Annesinin Annesi	MELÄ°SA	-	HÃœSNÃœ	HANÄ°FE	GÃœMÃœÅHANE
+01/07/1885	GÃœMÃœÅHANE/
 Didim/
-YAĞIZLI MAHALLESİ	9-41-32	Dul	Ölüm
+YAÄIZLI MAHALLESÄ°	9-41-32	Dul	Ã–lÃ¼m
 20/05/1967
-17	E	Annesinin Annesinin Annesinin Babası	İSMET	-	İSMET	EMİNE	GÜMÜŞHANE
-01/07/1885	GÜMÜŞHANE/
+17	E	Annesinin Annesinin Annesinin BabasÄ±	Ä°SMET	-	Ä°SMET	EMÄ°NE	GÃœMÃœÅHANE
+01/07/1885	GÃœMÃœÅHANE/
 Didim/
-YAĞIZLI MAHALLESİ	91-42-14	Evli	Ölüm
+YAÄIZLI MAHALLESÄ°	91-42-14	Evli	Ã–lÃ¼m
 -
-18	K	Annesinin Babasının Annesi	GÜLSÜM	GAYRET	AHMET	ZEYNEP	GÜMÜŞHANE
-01/07/1891	GÜMÜŞHANE/
+18	K	Annesinin BabasÄ±nÄ±n Annesi	GÃœLSÃœM	GAYRET	AHMET	ZEYNEP	GÃœMÃœÅHANE
+01/07/1891	GÃœMÃœÅHANE/
 Didim/
-DİKENCE MAHALLESİ	5-31-13	Evli	Ölüm
+DÄ°KENCE MAHALLESÄ°	5-31-13	Evli	Ã–lÃ¼m
 01/06/1967
-19	E	Annesinin Babasının Babası	VELİ	GAYRET	BİLAL	HANİFE	GÜMÜŞHANE
-01/07/1893	GÜMÜŞHANE/
+19	E	Annesinin BabasÄ±nÄ±n BabasÄ±	VELÄ°	GAYRET	BÄ°LAL	HANÄ°FE	GÃœMÃœÅHANE
+01/07/1893	GÃœMÃœÅHANE/
 Didim/
-DİKENCE MAHALLESİ	5-32-44	Dul	Ölüm
+DÄ°KENCE MAHALLESÄ°	5-32-44	Dul	Ã–lÃ¼m
 09/02/1970
-20	E	Annesinin Annesinin Babası	MERT	HULUSİ	VELİ MURAT	AYTEN	GÜMÜŞHANE
-01/07/1904	GÜMÜŞHANE/
+20	E	Annesinin Annesinin BabasÄ±	MERT	HULUSÄ°	VELÄ° MURAT	AYTEN	GÃœMÃœÅHANE
+01/07/1904	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	41-42-53	Evli	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	41-42-53	Evli	Ã–lÃ¼m
 18/01/1948
-21	E	Babasının Annesinin Babası	LÜTFÜ	RAHMAN	GÜNEY	FİLİZ	GÜMÜŞHANE
-01/07/1904	GÜMÜŞHANE/
+21	E	BabasÄ±nÄ±n Annesinin BabasÄ±	LÃœTFÃœ	RAHMAN	GÃœNEY	FÄ°LÄ°Z	GÃœMÃœÅHANE
+01/07/1904	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	3-82-21	Dul	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	3-82-21	Dul	Ã–lÃ¼m
 03/08/1987
-22	K	Annesinin Annesinin Annesi	AFİTAP	HULUSİ	İSMET	MELİSA	YAĞIZLI
-01/07/1905	GÜMÜŞHANE/
+22	K	Annesinin Annesinin Annesi	AFÄ°TAP	HULUSÄ°	Ä°SMET	MELÄ°SA	YAÄIZLI
+01/07/1905	GÃœMÃœÅHANE/
 Didim/
-GÜNÖREN MAHALLESİ	42-42-2	Dul	Ölüm
+GÃœNÃ–REN MAHALLESÄ°	42-42-2	Dul	Ã–lÃ¼m
 29/02/1988
-23	K	Babasının Babasının Annesi	EMİNE	KORKUT	HÜSNÜ	HOŞNUT	GÜMÜŞHANE
-14/03/1907	GÜMÜŞHANE/
+23	K	BabasÄ±nÄ±n BabasÄ±nÄ±n Annesi	EMÄ°NE	KORKUT	HÃœSNÃœ	HOÅNUT	GÃœMÃœÅHANE
+14/03/1907	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-124-2	Evli	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-124-2	Evli	Ã–lÃ¼m
 20/06/1942
-24	E	Babasının Babasının Babası	İSMET	KORKUT	SÜLEYMAN	FİLİZ	GÜMÜŞHANE
-10/11/1907	GÜMÜŞHANE/
+24	E	BabasÄ±nÄ±n BabasÄ±nÄ±n BabasÄ±	Ä°SMET	KORKUT	SÃœLEYMAN	FÄ°LÄ°Z	GÃœMÃœÅHANE
+10/11/1907	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	14-11-73	Dul	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	14-11-73	Dul	Ã–lÃ¼m
 20/12/1989
-25	K	Babasının Annesinin Annesi	ZEYNEP	RAHMAN	RECEP	DİLARA	GÜMÜŞHANE
-16/05/1909	GÜMÜŞHANE/
+25	K	BabasÄ±nÄ±n Annesinin Annesi	ZEYNEP	RAHMAN	RECEP	DÄ°LARA	GÃœMÃœÅHANE
+16/05/1909	GÃœMÃœÅHANE/
 Didim/
-DELİKKAYA MAHALLESİ	31-82-1	Evli	Ölüm
+DELÄ°KKAYA MAHALLESÄ°	31-82-1	Evli	Ã–lÃ¼m
 05/05/1974
-26	E	Annesinin Babası	YUNUS	GAYRET	VELİ	GÜLSÜM	GÜMÜŞHANE
-01/03/1925	GÜMÜŞHANE/
+26	E	Annesinin BabasÄ±	YUNUS	GAYRET	VELÄ°	GÃœLSÃœM	GÃœMÃœÅHANE
+01/03/1925	GÃœMÃœÅHANE/
 Didim/
-DİKENCE MAHALLESİ	8-32-2	Evli	Ölüm
+DÄ°KENCE MAHALLESÄ°	8-32-2	Evli	Ã–lÃ¼m
 13/10/2004
-27	K	Annesinin Annesi	GÜLLÜ	GAYRET	MERT	DİLARA	GÜMÜŞHANE
-18/02/1926	GÜMÜŞHANE/
+27	K	Annesinin Annesi	GÃœLLÃœ	GAYRET	MERT	DÄ°LARA	GÃœMÃœÅHANE
+18/02/1926	GÃœMÃœÅHANE/
 Didim/
-DİKENCE MAHALLESİ	83-31-44	Dul	Ölüm
+DÄ°KENCE MAHALLESÄ°	83-31-44	Dul	Ã–lÃ¼m
 25/06/2016
-28	K	Babasının Annesi	MEVLÜDE	KORKUT	LÜTFÜ	ZEYNEP	GÜMÜŞHANE
-01/03/1934	GÜMÜŞHANE/
+28	K	BabasÄ±nÄ±n Annesi	MEVLÃœDE	KORKUT	LÃœTFÃœ	ZEYNEP	GÃœMÃœÅHANE
+01/03/1934	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-12-41	Evli	Ölüm
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-12-41	Evli	Ã–lÃ¼m
 27/01/1972
-29	E	Babasının Babası	CEMAL	KORKUT	İSMET	EMİNE	GÜMÜŞHANE
-01/07/1934	GÜMÜŞHANE/
+29	E	BabasÄ±nÄ±n BabasÄ±	CEMAL	KORKUT	Ä°SMET	EMÄ°NE	GÃœMÃœÅHANE
+01/07/1934	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	11-13-12	Dul	Sağ
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	11-13-12	Dul	SaÄŸ
 -
-30	K	Annesi	DAMLA	KORKUT	YUNUS	GÜLLÜ	GÜMÜŞHANE
-14/06/1961	GÜMÜŞHANE/
+30	K	Annesi	DAMLA	KORKUT	YUNUS	GÃœLLÃœ	GÃœMÃœÅHANE
+14/06/1961	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	14-114-11	Evli	Sağ
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	14-114-11	Evli	SaÄŸ
 -
-31	E	Babası	KERİM	KORKUT	CEMAL	MEVLÜDE	GÜMÜŞHANE
-04/04/1965	GÜMÜŞHANE/
+31	E	BabasÄ±	KERÄ°M	KORKUT	CEMAL	MEVLÃœDE	GÃœMÃœÅHANE
+04/04/1965	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	24-11-64	Evli	Sağ
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	24-11-64	Evli	SaÄŸ
 -
-32	E	Kendisi	GÖKAY	KORKUT	KERİM	DAMLA	GÜMÜŞHANE
-22/12/1984	GÜMÜŞHANE/
+32	E	Kendisi	GÃ–KAY	KORKUT	KERÄ°M	DAMLA	GÃœMÃœÅHANE
+22/12/1984	GÃœMÃœÅHANE/
 Didim/
-BİLGİÇ MAHALLESİ	23-11-124	Evli	Sağ
+BÄ°LGÄ°Ã‡ MAHALLESÄ°	23-11-124	Evli	SaÄŸ
 -
-AÇIKLAMALAR
-1-)	İŞBU BELGE turkiye.gov.tr ADRESİNDEN 02.04.2018 TARİHİNDE BİLGİLENDİRME AMACIYLA OLUŞTURULMUŞTUR. HERHANGİ BİR RESMİ İŞLEMDE KULLANILAMAZ.
+AÃ‡IKLAMALAR
+1-)	Ä°ÅBU BELGE turkiye.gov.tr ADRESÄ°NDEN 02.04.2018 TARÄ°HÄ°NDE BÄ°LGÄ°LENDÄ°RME AMACIYLA OLUÅTURULMUÅTUR. HERHANGÄ° BÄ°R RESMÄ° Ä°ÅLEMDE KULLANILAMAZ.
 
-Bu bilgiler 02.04.2018 10:08:38 tarihinde oluşturulmuştur.
-Sayfa Sonu Bağlantıları
-e-Devlet Kapısı
+Bu bilgiler 02.04.2018 10:08:38 tarihinde oluÅŸturulmuÅŸtur.
+Sayfa Sonu BaÄŸlantÄ±larÄ±
+e-Devlet KapÄ±sÄ±
 Ana Sayfa
 English
-Hakkımızda
+HakkÄ±mÄ±zda
 Yasal Bildirim
-Gizlilik ve Kullanım
+Gizlilik ve KullanÄ±m
 e-Hizmetler
-Sık Kullanılan Hizmetler
+SÄ±k KullanÄ±lan Hizmetler
 Yeni Eklenen Hizmetler
 Belediye Hizmetleri
 e-Hizmetler
-Kamu Kurumları
-Tüm Kurumlar
+Kamu KurumlarÄ±
+TÃ¼m Kurumlar
 Belediyeler
 Kamu Hizmet Envanteri
-Yardım
-Genel Yardım
-Sıkça Sorulanlar
-Politikalarımız
-Güvenliğiniz İçin
-Bize Ulaşın
-İletişim
-BİMER Başvurusu
+YardÄ±m
+Genel YardÄ±m
+SÄ±kÃ§a Sorulanlar
+PolitikalarÄ±mÄ±z
+GÃ¼venliÄŸiniz Ä°Ã§in
+Bize UlaÅŸÄ±n
+Ä°letiÅŸim
+BÄ°MER BaÅŸvurusu
 Help For Non-Citizens
-Erişilebilirlik
-Salt Metin Görünümü
+EriÅŸilebilirlik
+Salt Metin GÃ¶rÃ¼nÃ¼mÃ¼
 Daha Belirgin Odaklama
-Klavye Kısayolları
-Site Haritası
-İletişim Seçenekleri
-Yardım mı lazım? Aşağıdaki yöntemleri kullanarak bizimle iletişime geçebilirsiniz.
-Hızlı Çözüm Merkezi
-Bize Yazın
-e-Devlet Çağrı Merkezi
-Engelsiz Çağrı Merkezi
+Klavye KÄ±sayollarÄ±
+Site HaritasÄ±
+Ä°letiÅŸim SeÃ§enekleri
+YardÄ±m mÄ± lazÄ±m? AÅŸaÄŸÄ±daki yÃ¶ntemleri kullanarak bizimle iletiÅŸime geÃ§ebilirsiniz.
+HÄ±zlÄ± Ã‡Ã¶zÃ¼m Merkezi
+Bize YazÄ±n
+e-Devlet Ã‡aÄŸrÄ± Merkezi
+Engelsiz Ã‡aÄŸrÄ± Merkezi
 Facebook
 Twitter
 Youtube
 Instagram
- Başbakanlık  Ulaştırma, Denizcilik ve Haberleşme Bakanlığı  Haberleşme Genel Müdürlüğü  Türksat A.Ş.
-e-Devlet Kapısı’nın kurulması ve yönetilmesi görevi Başbakanlık adına Ulaştırma, Denizcilik ve Haberleşme Bakanlığı tarafından yürütülmekte, sistemin geliştirilmesi ve işletilmesi Türksat A.Ş. tarafından yapılmaktadır.
-©2018 Tüm Hakları Saklıdır. Gizlilik, Kullanım ve Telif Hakları bildiriminde belirtilen kurallar çerçevesinde hizmet sunulmaktadır.
+ BaÅŸbakanlÄ±k  UlaÅŸtÄ±rma, Denizcilik ve HaberleÅŸme BakanlÄ±ÄŸÄ±  HaberleÅŸme Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼  TÃ¼rksat A.Å.
+e-Devlet KapÄ±sÄ±â€™nÄ±n kurulmasÄ± ve yÃ¶netilmesi gÃ¶revi BaÅŸbakanlÄ±k adÄ±na UlaÅŸtÄ±rma, Denizcilik ve HaberleÅŸme BakanlÄ±ÄŸÄ± tarafÄ±ndan yÃ¼rÃ¼tÃ¼lmekte, sistemin geliÅŸtirilmesi ve iÅŸletilmesi TÃ¼rksat A.Å. tarafÄ±ndan yapÄ±lmaktadÄ±r.
+Â©2018 TÃ¼m HaklarÄ± SaklÄ±dÄ±r. Gizlilik, KullanÄ±m ve Telif HaklarÄ± bildiriminde belirtilen kurallar Ã§erÃ§evesinde hizmet sunulmaktadÄ±r.

@@ -303,85 +303,69 @@ function DrawConnections(familyTree, r) {
         if (member.Baba !== undefined) {
             fatherFound = true;
             r.connection(member.Shape, member.Baba.Shape, "#000", "", false);
-            if (member.Baba.OtherSpouses !== undefined) {
-                let allSpouses = member.Baba.OtherSpouses.slice();
-                if (member.Anne !== undefined) {
-                    allSpouses.push(member.Anne);
-                    spouseConnectionDrawn = true;
-                }
-                allSpouses.sort(function(a, b) {
-                    return a.Shape.getBBox().x - b.Shape.getBBox().x;
-                });
-                if (member.Baba.Shape.connected === undefined) {
-                    member.Baba.Shape.connected = {};
-                }
-                // Draw a direct line with the nearest spouse if not already drawn
-                if (member.Baba.Shape.connected[allSpouses[0].Shape.id] === undefined) {
-                    r.connection(member.Baba.Shape, allSpouses[0].Shape, "#000", "", false);
-                    member.Baba.Shape.connected[allSpouses[0].Shape.id] = true;
-                    if (allSpouses[0].Shape.connected === undefined) {
-                        allSpouses[0].Shape.connected = {};
-                    }
-                    allSpouses[0].Shape.connected[member.Baba.Shape.id] = true;
-                }
-                for (let i = 1; i < allSpouses.length; i++) {
-                    const spouse = allSpouses[i];
-                    if (member.Baba.Shape.connected[spouse.Shape.id] === undefined) {
-                        // Draw a line avoiding the other spouse boxes 
-                        r.connection(member.Baba.Shape, spouse.Shape, "#000", "", true);
-                        member.Baba.Shape.connected[spouse.Shape.id] = true;
-                        if (spouse.Shape.connected === undefined) {
-                            spouse.Shape.connected = {};
-                        }
-                        spouse.Shape.connected[member.Baba.Shape.id] = true;
-                    }
-                }
-            }
+            spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Baba");
         }
         if (member.Anne !== undefined) {
             motherFound = true;
             if (!fatherFound) {
                 r.connection(member.Shape, member.Anne.Shape, "#000", "", false);
             }
-            if (member.Anne.OtherSpouses !== undefined) {
-                let allSpouses = member.Anne.OtherSpouses.slice();
-                if (member.Baba !== undefined) {
-                    allSpouses.push(member.Baba);
-                    spouseConnectionDrawn = true;
-                }
-                allSpouses.sort(function(a, b) {
-                    return a.Shape.getBBox().x - b.Shape.getBBox().x;
-                });
-                if (member.Anne.Shape.connected === undefined) {
-                    member.Anne.Shape.connected = {};
-                }
-                // Draw a direct line with the nearest spouse if not already drawn
-                if (member.Anne.Shape.connected[allSpouses[0].Shape.id] === undefined) {
-                    r.connection(member.Anne.Shape, allSpouses[0].Shape, "#000", "", false);
-                    member.Anne.Shape.connected[allSpouses[0].Shape.id] = true;
-                    if (allSpouses[0].Shape.connected === undefined) {
-                        allSpouses[0].Shape.connected = {};
-                    }
-                    allSpouses[0].Shape.connected[member.Anne.Shape.id] = true;
-                }
-                for (let i = 1; i < allSpouses.length; i++) {
-                    const spouse = allSpouses[i];
-                    if (member.Anne.Shape.connected[spouse.Shape.id] === undefined) {
-                        // Draw a line avoiding the other spouse boxes 
-                        r.connection(member.Anne.Shape, spouse.Shape, "#000", "", true);
-                        member.Anne.Shape.connected[spouse.Shape.id] = true;
-                        if (spouse.Shape.connected === undefined) {
-                            spouse.Shape.connected = {};
-                        }
-                        spouse.Shape.connected[member.Anne.Shape.id] = true;
-                    }
-                }
-            }
+            spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Anne");
         }
         if (fatherFound && motherFound && !spouseConnectionDrawn) {
             r.connection(member.Baba.Shape, member.Anne.Shape, "#000", "", false);
         }
     }
+}
+
+/**
+ * Connects parents of the member with each other, if the given parent of the member has more than one spouses.
+ * Returns true, if during this operation, the given parent is also connected with his/her first spouse.
+ * @param {Object} r Raphael object
+ * @param {Object} member Family member whose parents are being connected
+ * @param {string} parent "Anne" or "Baba"
+ */
+function DrawConnectionWithOtherSpouses(r, member, parent) {
+    if (member[parent].OtherSpouses === undefined) {
+        return false;
+    }
+
+    let spouseConnectionDrawn = false;
+    let allSpouses = member[parent].OtherSpouses.slice();
+    let firstSpouse = member[parent] == member.Baba ? member.Anne : member.Baba;
+    if (firstSpouse !== undefined) {
+        allSpouses.push(firstSpouse);
+        spouseConnectionDrawn = true;
+    }
+    allSpouses.sort(function (a, b) {
+        return a.Shape.getBBox().x - b.Shape.getBBox().x;
+    });
+    if (member[parent].Shape.connected === undefined) {
+        member[parent].Shape.connected = {};
+    }
+    // Draw a direct line with the nearest spouse if not already drawn
+    if (member[parent].Shape.connected[allSpouses[0].Shape.id] === undefined) {
+        r.connection(member[parent].Shape, allSpouses[0].Shape, "#000", "", false);
+        member[parent].Shape.connected[allSpouses[0].Shape.id] = true;
+        if (allSpouses[0].Shape.connected === undefined) {
+            allSpouses[0].Shape.connected = {};
+        }
+        allSpouses[0].Shape.connected[member[parent].Shape.id] = true;
+    }
+    for (let i = 1; i < allSpouses.length; i++) {
+        const spouse = allSpouses[i];
+        if (member[parent].Shape.connected[spouse.Shape.id] === undefined) {
+            // Draw a line avoiding the other spouse boxes 
+            r.connection(member[parent].Shape, spouse.Shape, "#000", "", true);
+            member[parent].Shape.connected[spouse.Shape.id] = true;
+            if (spouse.Shape.connected === undefined) {
+                spouse.Shape.connected = {};
+            }
+            spouse.Shape.connected[member[parent].Shape.id] = true;
+        }
+    }
+
+    return spouseConnectionDrawn;
 }
 
 /**
