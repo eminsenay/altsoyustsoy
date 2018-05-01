@@ -112,7 +112,7 @@ window.onload = function () {
     for (i = 0, ii = shapes.length; i < ii; i++) {
 
         let maxWidth = Math.max(shapes[i].getBBox().width, texts[i].getBBox().width);
-        this.alert(maxWidth);
+        //this.alert(maxWidth);
         //shapes[i].attr(attr1);
         color = Raphael.getColor();
         tempS = shapes[i].attr({
@@ -129,7 +129,7 @@ window.onload = function () {
         tempS.pair = tempT;
         tempT.pair = tempS;
     }
-    connections.push(r.connection(shapes[0], shapes[1], "#fff"));
-    connections.push(r.connection(shapes[1], shapes[2], "#fff", "#fff|5"));
-    connections.push(r.connection(shapes[1], shapes[3], "#000", "#fff"));
+    connections.push(r.connection(shapes[0], shapes[1], "#aabbcc"));
+    connections.push(r.connection(shapes[1], shapes[2], "#aabbcc", "#aabbcc|5"));
+    connections.push(r.connection(shapes[1], shapes[3], "#aabbcc", "#ff00dd|5"));
 };
