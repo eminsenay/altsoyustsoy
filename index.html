@@ -15,6 +15,13 @@
   <script src="js/Tooltip.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/FamilyTreeBuilder.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/FamilyTreeDrawer.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+  function buttonOnClick() {
+      DrawFamilyTree(document.getElementById('familyTreeText').value);
+      document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('downloadlink').style.visibility = "visible";
+  }
+  </script>
 </head>
 
 <body class="body page-index clearfix">
@@ -25,10 +32,10 @@
   <p class="text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
   <div class="container container-2 clearfix">
     <textarea class="_textarea" id="familyTreeText"></textarea>
-    <button class="_button" onclick="DrawFamilyTree(document.getElementById('familyTreeText').value)">Çiz</button>
+    <button class="_button" onclick="buttonOnClick()">Çiz</button>
     <div id="holder"></div>
     <div id="resultsvg" style="display:none"></div>
-    <a id="downloadlink" href="#" onclick="GenerateSvg(this)">Resmi indir</a>
+    <a id="downloadlink" href="#" onclick="GenerateSvg(this)" style="visibility: hidden;">Resmi indir</a>
   </div>
 
 </body>
