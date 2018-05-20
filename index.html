@@ -1,33 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/raphael.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/RaphaelExtensions.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/raphael.export.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/Tooltip.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/FamilyTreeBuilder.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/FamilyTreeDrawer.js" type="text/javascript" charset="utf-8"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>alt soy üst soy -- e-Devlet Alt-Üst Soy Bilgisi Çizici</title>
+  <link href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/index-grid.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/raphael.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/RaphaelExtensions.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/raphael.export.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/Tooltip.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/FamilyTreeBuilder.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/FamilyTreeDrawer.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
-<body>
-    <form>
-        <ul class="form-style-1">
-            <li>
-                <label>Soyağacı metni:</label>
-                <textarea name="familyTreeText" id="familyTreeText" class="field-long field-textarea"></textarea>
-            </li>
-            <li>
-                <input type="button" value="Çiz" onclick="DrawFamilyTree(document.getElementById('familyTreeText').value)" />
-            </li>
-        </ul>
-    </form>
-
+<body class="body page-index clearfix">
+  <div class="container container-1 clearfix">
+    <img class="image" src="images/logo.png">
+  </div>
+  <p class="text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
+  <p class="text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
+  <div class="container container-2 clearfix">
+    <textarea class="_textarea" id="familyTreeText"></textarea>
+    <button class="_button" onclick="DrawFamilyTree(document.getElementById('familyTreeText').value)">Çiz</button>
     <div id="holder"></div>
     <div id="resultsvg" style="display:none"></div>
     <a id="downloadlink" href="#" onclick="GenerateSvg(this)">Resmi indir</a>
+  </div>
+
 </body>
 
 </html>

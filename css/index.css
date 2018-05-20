@@ -1,0 +1,73 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 Muli;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  float: left;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 250px;
+  height: auto;
+  margin: 10px auto 0;
+  overflow: hidden;
+}
+
+.text {
+  float: left;
+  clear: both;
+  width: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._button {
+  display: block;
+  float: right;
+  clear: both;
+  width: 8.9075520833%;
+  height: 37px;
+  margin: 10px 23.58073% 0 0;
+  border-radius: 3px;
+  background-color: rgb(0, 230, 230);
+  font-size: 1em;
+  font-weight: 300;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._textarea {
+  display: block;
+  width: 52.8333333333%;
+  height: 157px;
+  margin: 10px auto 0;
+  padding: 5px;
+  border: 1px solid rgb(119, 119, 119);
+  background-color: rgb(242, 242, 242);
+  font-size: 1em;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  resize: vertical;
+}
+
+.container-1 {
+  height: 270px;
+}
+
+.container-2 {
+  position: relative;
+  clear: both;
+  height: 250px;
+}
+
+.text-1 {
+  font-size: 2.5em;
+}
+
+.text-2 {
+  font-size: 1em;
+}
