@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>alt soy üst soy -- e-Devlet Alt-Üst Soy Bilgisi Çizici</title>
+  <link href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/bundle.min.css"></script>
+  <script type="text/javascript">
+  function buttonOnClick() {
+      DrawFamilyTree(document.getElementById('familyTreeText').value);
+      document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('downloadlink').style.visibility = "visible";
+  }
+  </script>
+</head>
+
+<body class="body page-index clearfix">
+  <div class="container container-1 clearfix">
+    <img class="image" src="images/logo.png">
+  </div>
+  <p class="text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
+  <p class="text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
+  <div class="container container-2 clearfix">
+    <textarea class="_textarea" id="familyTreeText"></textarea>
+    <button class="_button" onclick="buttonOnClick()">Çiz</button>
+    <div id="holder"></div>
+    <div id="resultsvg" style="display:none"></div>
+    <a id="downloadlink" href="#" onclick="GenerateSvg(this)" style="visibility: hidden;">Resmi indir</a>
+  </div>
+
+</body>
+
+</html>
