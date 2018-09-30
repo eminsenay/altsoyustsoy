@@ -1,11 +1,10 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0">
   <title>alt soy üst soy -- e-Devlet Alt-Üst Soy Bilgisi Çizici</title>
-  <link href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
   <!-- build:css css/style.min.css -->
   <link rel="stylesheet" href="css/standardize.css">
   <link rel="stylesheet" href="css/index-grid.css">
@@ -27,21 +26,18 @@
   }
   </script>
 </head>
-
 <body class="body page-index clearfix">
-  <div class="container container-1 clearfix">
+  <div id="imageContainer" class="container container-1 clearfix js-image-container">
     <img class="image" src="images/logo.png">
   </div>
-  <p class="text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
-  <p class="text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
-  <div class="container container-2 clearfix">
-    <textarea class="_textarea" id="familyTreeText"></textarea>
-    <button class="_button" onclick="buttonOnClick()">Çiz</button>
-    <div id="holder"></div>
-    <div id="resultsvg" style="display:none"></div>
-    <a id="downloadlink" href="#" onclick="GenerateSvg(this)" style="visibility: hidden;">Resmi indir</a>
+  <p class="text _text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
+  <p class="text _text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
+  <div id="restContainer" class="container container-2 clearfix js-rest-container">
+    <textarea id="familyTreeText" class="_textarea js-family-tree-text"></textarea>
+    <a id="downloadlink" class="_text js-downloadlink" href="#" onclick="GenerateSvg(this);">Resmi indir</a>
+    <button class="_button js-draw-button" onclick="buttonOnClick()">Çiz</button>
+    <div id="holder" class="container _element container-3 js-holder"></div>
+    <div id="resultsvg" class="container _element container-4 js-resultsvg"></div>
   </div>
-
 </body>
-
 </html>

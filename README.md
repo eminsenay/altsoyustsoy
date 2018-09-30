@@ -6,10 +6,13 @@ After displaying your family tree in a tabular form at the e-Government page, co
 
 ## Technical Info
 
-Uses Raphaëljs for visualization. 
-
-I'm not very fluent in Javascript, so don't be surprised if you see some awkward methods of doing things which are really easy with a different method.
+- Using Raphaëljs for visualization. 
+- Using Grunt for deployment. TODO: Details
+- Using [Macaw](http://download.macaw.co/) for the page design. 
+    - Design file is located at the `/design` directory. After changing it, publish it under Macaw and manually modify the index.html and css files with the ones generated under `/design/altsoyustsoy` directory.
+- I'm not very fluent in Javascript, so don't be surprised if you see some awkward methods of doing things which are really easy with a different method.
 
 ## TODOs & Bugs & Known Issues 
 
-1. General look and feel
+1. Help and privacy parts need to be prepared.
+2. General look and feel
