@@ -33,8 +33,7 @@ body {
 }
 
 ._element {
-  clear: both;
-  height: 9px;
+  width: 100%;
 }
 
 ._textarea {
@@ -54,6 +53,7 @@ body {
 
 .container ._text {
   display: block;
+  visibility: hidden;
   position: relative;
   float: left;
   clear: both;
@@ -89,17 +89,7 @@ body {
   height: 250px;
 }
 
-.container-3 {
-  margin-top: 51px;
-}
-
-.container-4 {
-  display: none;
-  margin-top: 10px;
-}
-
 .text-1 {
-  margin-top: 9px;
   font-size: 2.5em;
 }
 
@@ -133,4 +123,16 @@ body {
   margin: 10px 23.58073% 0 0;
   background-color: rgb(0, 230, 230);
   font-weight: 300;
+}
+
+.container ._element-1 {
+  float: left;
+  clear: both;
+  margin-top: 103px;
+}
+
+.container ._element-2 {
+  display: none;
+  height: 76px;
+  margin: 393px auto 0;
 }
