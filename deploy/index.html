@@ -18,7 +18,7 @@
 </head>
 <body class="body page-index clearfix">
   <div id="headerContainer" class="container container-1 clearfix">
-    <button id="buttonHelp" class="_button _button-1">Yardım</button>
+    <button id="buttonHelp" class="_button _button-1" onclick="location.href='#popup1'">Yardım</button>
     <button id="buttonPrivacy" class="_button _button-2">Gizlilik</button>
   </div>
   <div id="logoContainer" class="container container-2 clearfix">
@@ -33,5 +33,19 @@
     <div id="holder" class="_element _element-1"></div>
     <div id="resultsvg" style="display: none"></div>
   </div>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>Yardım</h2>
+      <a class="close" href="#" onclick="getElementById('helpVideo').pause()">&times;</a>
+      <div class="content">
+        <video id="helpVideo" width="640" height="480" controls>
+          <source src="videos/test.mp4" type="video/mp4">
+          Tarayıcınız video oynatımını desteklemiyor.
+        </video>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
