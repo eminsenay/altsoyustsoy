@@ -19,11 +19,12 @@
   <script src="js/FamilyTreeDrawer.js" type="text/javascript" charset="utf-8"></script>
   <!-- endbuild -->
   <script type="text/javascript">
-  function buttonOnClick() {
-      DrawFamilyTree(document.getElementById('familyTreeText').value);
-      document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
-      document.getElementById('downloadlink').style.visibility = "visible";
-  }
+    function buttonOnClick() {
+      if (DrawFamilyTree(document.getElementById('familyTreeText').value) === true) {
+        document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('downloadlink').style.visibility = "visible";
+      }
+    }
   </script>
 </head>
 <body class="body page-index clearfix">

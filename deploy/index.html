@@ -1,36 +1,37 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0">
   <title>alt soy üst soy -- e-Devlet Alt-Üst Soy Bilgisi Çizici</title>
-  <link href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Muli:400,300,400" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/style.min.css">
   <script src="js/bundle.min.css"></script>
   <script type="text/javascript">
-  function buttonOnClick() {
-      DrawFamilyTree(document.getElementById('familyTreeText').value);
-      document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
-      document.getElementById('downloadlink').style.visibility = "visible";
-  }
+    function buttonOnClick() {
+      if (DrawFamilyTree(document.getElementById('familyTreeText').value) === true) {
+        document.getElementById('holder').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('downloadlink').style.visibility = "visible";
+      }
+    }
   </script>
 </head>
-
 <body class="body page-index clearfix">
-  <div class="container container-1 clearfix">
-    <img class="image" src="images/logo.png">
+  <div id="headerContainer" class="container container-1 clearfix">
+    <button id="buttonHelp" class="_button _button-1">Yardım</button>
+    <button id="buttonPrivacy" class="_button _button-2">Gizlilik</button>
   </div>
-  <p class="text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
-  <p class="text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
-  <div class="container container-2 clearfix">
-    <textarea class="_textarea" id="familyTreeText"></textarea>
-    <button class="_button" onclick="buttonOnClick()">Çiz</button>
-    <div id="holder"></div>
-    <div id="resultsvg" style="display:none"></div>
-    <a id="downloadlink" href="#" onclick="GenerateSvg(this)" style="visibility: hidden;">Resmi indir</a>
+  <div id="logoContainer" class="container container-2 clearfix">
+    <img id="logoImage" class="image" src="images/logo.png">
   </div>
-
+  <p id="claimText" class="text _text text-1">e-Devlet Alt-Üst Soy Bilgisi Çizici</p>
+  <p id="explanationText" class="text _text text-2">e-Devlet Alt-Üst Soy Bilgisi sayfasının tümünü seçin, aşağıya yapıştırın</p>
+  <div id="formContainer" class="container container-3 clearfix">
+    <textarea id="familyTreeText" class="_textarea"></textarea>
+    <a id="downloadlink" class="_text" href="#" onclick="GenerateSvg(this)">Resmi indir</a>
+    <button id="drawButton" class="_button _button-3" onclick="buttonOnClick()">Çiz</button>
+    <div id="holder" class="_element _element-1"></div>
+    <div id="resultsvg" style="display: none"></div>
+  </div>
 </body>
-
 </html>

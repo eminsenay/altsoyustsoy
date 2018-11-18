@@ -16,10 +16,14 @@ function DrawFamilyTree(eGovernmentText) {
     /* global BuildFamilyTree */
     familyTree = BuildFamilyTree(eGovernmentText);
 
+    if (familyTree === undefined) {
+        return false;
+    }
+
     // Find relative coordinates of the family members
     FindCoordinates(familyTree);
-
     DrawFamilyTreeInternal(familyTree, "holder");
+    return true;
 }
 
 /**
