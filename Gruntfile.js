@@ -8,40 +8,40 @@ module.exports = function (grunt) {
         useminPrepare: {
             html: 'index.html',
             options: { 
-                dest: 'deploy'
+                dest: 'docs'
             },
         },
         usemin: {
-            html:['deploy/index.html']
+            html:['docs/index.html']
         },
         copy: {
             html: {
-                src: 'index.html', dest: 'deploy/index.html'
+                src: 'index.html', dest: 'docs/index.html'
             },
             img: {
                 expand: true,
                 src: 'images/**',
-                dest: 'deploy/',
+                dest: 'docs/',
             },
             videos: {
                 expand: true,
                 src: 'videos/**',
-                dest: 'deploy/',
+                dest: 'docs/',
             },
         }
         // concat: {
         //     css: {
-        //         files: { 'deploy/css/style.css': 'css/**/*.css'}
+        //         files: { 'docs/css/style.css': 'css/**/*.css'}
         //     },
         //     js: {
-        //         files: { 'deploy/js/bundle.js': 'js/**/*.js' }
+        //         files: { 'docs/js/bundle.js': 'js/**/*.js' }
         //     }
         // },
 
         // cssmin: {
         //     target: {
         //         files: {
-        //             'deploy/css/style.min.css': 'deploy/css/style.css'
+        //             'docs/css/style.min.css': 'docs/css/style.css'
         //         }
         //     }
         // },
@@ -51,8 +51,8 @@ module.exports = function (grunt) {
         //         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         //     },
         //     build: {
-        //         src: 'deploy/js/bundle.js',
-        //         dest: 'deploy/js/bundle.min.js'
+        //         src: 'docs/js/bundle.js',
+        //         dest: 'docs/js/bundle.min.js'
         //     }
         // }
     });
