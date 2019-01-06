@@ -17,5 +17,5 @@ Call "grunt" at the terminal. It uglifies all css and js and then replaces the o
 
 ## TODOs & Bugs & Known Issues 
 
-1. Help and privacy parts need to be prepared.
-2. General look and feel
+1. Privacy part of the index page needs to be prepared.
+2. Fancier images for tree nodes.
