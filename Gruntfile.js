@@ -23,6 +23,11 @@ module.exports = function (grunt) {
                 src: 'images/**',
                 dest: 'deploy/',
             },
+            videos: {
+                expand: true,
+                src: 'videos/**',
+                dest: 'deploy/',
+            },
         }
         // concat: {
         //     css: {
@@ -61,6 +66,7 @@ module.exports = function (grunt) {
     // grunt.registerTask('default', ['concat:css', 'cssmin', 'concat:js', 'uglify']);
 
     grunt.registerTask('default',[
+        'copy:videos',
         'copy:img',
 		'copy:html',
 		'useminPrepare',

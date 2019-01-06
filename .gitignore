@@ -2,3 +2,4 @@ inputs/soysop.txt
 design/altsoyustsoy
 .tmp
 private
+.DS_Store
