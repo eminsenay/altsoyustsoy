@@ -1,4 +1,5 @@
 inputs/soysop.txt
+inputs/priv*.txt
 design/altsoyustsoy
 .tmp
 private
