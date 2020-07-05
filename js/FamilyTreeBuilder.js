@@ -65,7 +65,7 @@ function BuildFamilyTree(treeData) {
         line = lines[++lineIndex];
         parts = CleanArray(line.split("\t"));
         dateParts = parts[0].trim().split("/");
-        person.OlumTarihi = dateParts !== undefined && dateParts.length == 3 ? 
+        person.OlumTarihi = dateParts !== undefined && dateParts.length == 3 ?
             new Date(dateParts[2], dateParts[1] - 1, dateParts[0]) : undefined;
 
         personList.push(person);
@@ -99,23 +99,43 @@ function CreateNonExistingAncestors(familyTree) {
     var newMembers = [];
     for (let i = 0; i < familyTree.length; i++) {
         const person = familyTree[i];
-        if (person.Anne === undefined || !IsSimilar(person.Anne.Adi, person.AnaAdi)) {
+        if ((person.Anne === undefined || !IsSimilar(person.Anne.Adi, person.AnaAdi))) {
+            let relText = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
+                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
+
+            // the person may have been created by the sibling. Check before creating once more
+            let prevCreated = newMembers.find(x => x.YakinlikDerecesi === relText);
+            if (prevCreated !== undefined) {
+                person.Anne = prevCreated;
+                prevCreated.Children.push(person);
+                continue;
+            }
+
             let anne = new Object();
             anne.Adi = person.AnaAdi;
             anne.Children = [person];
             anne.Cinsiyet = "K";
-            anne.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
-                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " annesi";
+            anne.YakinlikDerecesi = relText;
             person.Anne = anne;
             newMembers.push(anne);
         }
-        if (person.Baba === undefined || !IsSimilar(person.Baba.Adi, person.BabaAdi)) {
+        if ((person.Baba === undefined || !IsSimilar(person.Baba.Adi, person.BabaAdi))) {
+            let relText = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
+                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
+
+            // the person may have been created by the sibling. Check before creating once more
+            let prevCreated = newMembers.find(x => x.YakinlikDerecesi === relText);
+            if (prevCreated !== undefined) {
+                person.Baba = prevCreated;
+                prevCreated.Children.push(person);
+                continue;
+            }
+
             let baba = new Object();
             baba.Adi = person.BabaAdi;
             baba.Children = [person];
             baba.Cinsiyet = "E";
-            baba.YakinlikDerecesi = person.YakinlikDerecesi == "oğlu" || person.YakinlikDerecesi == "kızı" ? "eşi" :
-                person.YakinlikDerecesi + GetPossessiveSuffix(person.YakinlikDerecesi) + " babası";
+            baba.YakinlikDerecesi = relText;
             person.Baba = baba;
             newMembers.push(baba);
         }
@@ -254,18 +274,46 @@ function BuildDescendants(person, familyTree) {
     } else {
         let relationIndex = person.YakinlikDerecesi.split(" ").length;
         for (let i = 0; i < familyTree.length; i++) {
+            // Search for the descendant of the person. 
+            // The descendant starts with the same YakinlikDerecesi, following with "kızı" or "oğlu".
+            // Exception: Descendant of the "Oğlu" or "Kızı" is "Torunu" (as opposed to "oğlunun oğlu, ...")
             const nextPerson = familyTree[i];
-            let words = nextPerson.YakinlikDerecesi.split(" ");
-            if (words.length - relationIndex != 1) {
-                continue;
-            }
-            if (!nextPerson.YakinlikDerecesi.startsWith(person.YakinlikDerecesi)) {
-                continue;
-            }
-            if (words[words.length - 1] != "oğlu" && words[words.length - 1] != "kızı") {
-                continue;
-            }
 
+            if (person.YakinlikDerecesi == "oğlu") {
+                if (nextPerson.YakinlikDerecesi != "torunu") {
+                    continue;
+                }
+                // try to check if the nextPerson is son or daughter of the person. 
+                // He/she may also be niece/nephew.
+                // This check uses the father/mother name. 
+                // Although it is expected to be sufficient for most of the time, 
+                // if the siblings are married with people having the same name of the sibling, 
+                // it may match incorrectly. This doesn't have a solution for now as the term 
+                // "torunu" doesn't carry any other information to be used.
+                if (nextPerson.BabaAdi != person.Adi) {
+                    continue;
+                }
+            }
+            else if (person.YakinlikDerecesi == "kızı") {
+                if (nextPerson.YakinlikDerecesi != "torunu") {
+                    continue;
+                }
+                if (nextPerson.AnaAdi != person.Adi) {
+                    continue;
+                }
+            }
+            else {
+                let words = nextPerson.YakinlikDerecesi.split(" ");
+                if (words.length - relationIndex != 1) {
+                    continue;
+                }
+                if (!nextPerson.YakinlikDerecesi.startsWith(person.YakinlikDerecesi)) {
+                    continue;
+                }
+                if (words[words.length - 1] != "oğlu" && words[words.length - 1] != "kızı") {
+                    continue;
+                }
+            }
             person.Children.push(nextPerson);
             if (person.Cinsiyet == "E") {
                 nextPerson.Baba = person;
@@ -311,7 +359,7 @@ function BuildOtherSpouses(familyTree) {
                 }
                 // avoid marking people with same gender as spouses (not possible in Turkey for now)
                 if (person.YakinlikDerecesi.slice(lastSpaceIndex + 1) ==
-                 nextPerson.YakinlikDerecesi.slice(lastSpaceIndex + 1)) {
+                    nextPerson.YakinlikDerecesi.slice(lastSpaceIndex + 1)) {
                     continue;
                 }
 
@@ -334,10 +382,10 @@ function GetPossessiveSuffix(str) {
     if (str.endsWith("babası") || str.endsWith("kızı")) {
         return "nın";
     }
-    else if (str.endsWith("annesi")) {
+    else if (str.endsWith("annesi") || str.endsWith("eşi")) {
         return "nin";
     }
-    else if (str.endsWith("oğlu")) {
+    else if (str.endsWith("oğlu") || str.endsWith("torunu")) {
         return "nun";
     }
     else {
