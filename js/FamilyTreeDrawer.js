@@ -189,7 +189,8 @@ function FindCoordinates(familyTree) {
 
         if (nextPerson.Baba !== undefined) {
             if (nextPerson.Baba.IsVisited == true) {
-                nextPerson.X = nextPerson.Baba.X;
+                // shift x pos for each child, not sure if it works with the grandchildren
+                nextPerson.X = nextPerson.Baba.X + nextPerson.Baba.Children.indexOf(nextPerson); 
                 nextPerson.Y = nextPerson.Baba.Y + 1;
                 nextPerson.IsVisited = true;
                 AddSpouses(nextPerson, people);
