@@ -4,5 +4,4 @@ design/altsoyustsoy
 .tmp
 private
 .DS_Store
-docs/*
 node_modules/*
