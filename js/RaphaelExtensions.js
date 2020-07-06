@@ -1,4 +1,13 @@
 /* global Raphael */
+/**
+ * Draws undirected connection lines between the given Raphael rectangles
+ * @param {object} obj1 First raphael rectangle 
+ * @param {object} obj2 Second raphael rectangle
+ * @param {string} line Line color 
+ * @param {string} bg Bsackground color and thickness (such as "#aaa|10") 
+ * @param {boolean} avoidCrossing If true, objects between obj1 and obj2 won't be crossed. 
+ * For this to work, obj1 and obj2 must be on the same vertical position and obj1 must be left of obj2.
+ */
 Raphael.fn.connection = function (obj1, obj2, line, bg, avoidCrossing) {
     if (obj1.line && obj1.from && obj1.to) {
         line = obj1;
@@ -47,19 +56,26 @@ Raphael.fn.connection = function (obj1, obj2, line, bg, avoidCrossing) {
     var path;
     if (avoidCrossing === true && res[0] == 3 && res[1] == 6) { 
         // AvoidCrossing only works for res = [3, 6]
-        let x1_1 = (x1 + 10).toFixed(3);
-        let y1_1 = y1.toFixed(3);
-        let x1_2 = x1_1;
-        let y1_2 = (bb1.y + bb1.height + 10).toFixed(3);
-        let x4_1 = (x4 - 10).toFixed(3);
-        let y4_1 = y4.toFixed(3);
-        let x4_2 = x4_1;
-        let y4_2 = (bb2.y + bb2.height + 10).toFixed(3);
+        
+        // draw a connection like the following:
+        // __         __        1__5        8__4
+        //   |_______|    -->      |________|
+        //                         6        7
+           
+        let x5 = (x1 + 10).toFixed(3);
+        let y5 = y1.toFixed(3);
+        let x6 = x5;
+        let y6 = (bb1.y + bb1.height + 10).toFixed(3);
+        let x7 = (x4 - 10).toFixed(3);
+        let y7 = (bb2.y + bb2.height + 10).toFixed(3);
+        let x8 = x7;
+        let y8 = y4.toFixed(3);
+
         path = ["M", x1.toFixed(3), y1.toFixed(3), 
-        "L", x1_1, y1_1, 
-        "L", x1_2, y1_2, 
-        "L", x4_2, y4_2, 
-        "L", x4_1, y4_1, 
+        "L", x5, y5, 
+        "L", x6, y6, 
+        "L", x7, y7, 
+        "L", x8, y8, 
         "L", x4.toFixed(3), y4.toFixed(3)].join(",");
     }
     else {

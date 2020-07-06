@@ -313,6 +313,8 @@ function DrawConnections(familyTree, r) {
         if (member.Anne !== undefined) {
             motherFound = true;
             if (!fatherFound) {
+                // only connect with mother if the member won't be connected to father.
+                // if it will be connected to father, father will be connected to mother
                 r.connection(member.Shape, member.Anne.Shape, "#000", "", false);
             }
             spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Anne");
