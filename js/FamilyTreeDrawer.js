@@ -189,8 +189,8 @@ function FindCoordinates(familyTree) {
 
         if (nextPerson.Baba !== undefined) {
             if (nextPerson.Baba.IsVisited == true) {
-                // shift x pos for each child, not sure if it works with the grandchildren
-                nextPerson.X = nextPerson.Baba.X + nextPerson.Baba.Children.indexOf(nextPerson); 
+                let childIndex = nextPerson.Baba.Children.indexOf(nextPerson);
+                nextPerson.X = childIndex == 0 ? nextPerson.Baba.X : nextXIndex++;
                 nextPerson.Y = nextPerson.Baba.Y + 1;
                 nextPerson.IsVisited = true;
                 AddSpouses(nextPerson, people);
@@ -278,8 +278,21 @@ function SetYIndex(person, numAncestorLayers) {
         person.Y = numAncestorLayers;
     }
     else { // descendants
-        let numWords = person.YakinlikDerecesi.split(" ").length;
-        person.Y = numAncestorLayers + numWords;
+        let words = person.YakinlikDerecesi.split(" ");
+        let descendantCount = 0;
+        words.forEach(element => {
+            if (element.startsWith("oğlu") || element.startsWith("kızı")) {
+                descendantCount++;
+            }
+            else if (element.startsWith("torunu")) {
+                descendantCount += 2;
+            }
+            // required for strings like "torununun annesi"
+            else if (element.startsWith("annesi") || element.startsWith("babası")) {
+                descendantCount--;
+            }
+        });
+        person.Y = numAncestorLayers + descendantCount;
     }
 }
 
@@ -307,7 +320,7 @@ function DrawConnections(familyTree, r) {
         let spouseConnectionDrawn = false;
         if (member.Baba !== undefined) {
             fatherFound = true;
-            r.connection(member.Shape, member.Baba.Shape, "#000", "", false);
+            r.connection(member.Shape, member.Baba.Shape, "#000", "", true);
             spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Baba");
         }
         if (member.Anne !== undefined) {
@@ -315,7 +328,7 @@ function DrawConnections(familyTree, r) {
             if (!fatherFound) {
                 // only connect with mother if the member won't be connected to father.
                 // if it will be connected to father, father will be connected to mother
-                r.connection(member.Shape, member.Anne.Shape, "#000", "", false);
+                r.connection(member.Shape, member.Anne.Shape, "#000", "", true);
             }
             spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Anne");
         }
