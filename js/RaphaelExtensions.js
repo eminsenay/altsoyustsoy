@@ -38,7 +38,7 @@ Raphael.fn.connection = function (obj1, obj2, line, bg, perpendicular) {
     //    ____0____         ____4____       --> x
     //   |         |       |         |     |
     // 2 |   obj1  | 3   6 |   obj2  | 7   |
-    //   |____1____|       |____5____|     v   y
+    //   |____1____|       |____5____|     v   -y
     //   
     for (var i = 0; i < 4; i++) {
         for (var j = 4; j < 8; j++) {
@@ -96,7 +96,7 @@ Raphael.fn.connection = function (obj1, obj2, line, bg, perpendicular) {
                 "L", x8, y8,
                 "L", x4.toFixed(3), y4.toFixed(3)].join(",");
         }
-        else if (y1 > y4) {
+        else if (y1 < y4) {
             // obj1 is on top of obj2
             
             // draw a connection like the following
@@ -113,8 +113,8 @@ Raphael.fn.connection = function (obj1, obj2, line, bg, perpendicular) {
             x1 = p[1].x.toFixed(3);
             y1 = p[1].y.toFixed(3);
             let x5 = x1;
-            let y5 = (y1 + 10).toFixed(3);
-            let x7 = (x4 - 10).toFixed(3);
+            let y5 = (p[1].y + 10.0).toFixed(3);
+            let x7 = (x4 - 10.0).toFixed(3);
             let y7 = y4;
             let x6 = x7;
             let y6 = y5;
@@ -123,7 +123,6 @@ Raphael.fn.connection = function (obj1, obj2, line, bg, perpendicular) {
                 "L", x5, y5,
                 "L", x6, y6,
                 "L", x7, y7,
-                "L", x8, y8,
                 "L", x4.toFixed(3), y4.toFixed(3)].join(",");
         }
         else {

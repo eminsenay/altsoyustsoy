@@ -17,6 +17,5 @@ Call "grunt" at the terminal. It uglifies all css and js and then replaces the o
 
 ## TODOs & Bugs & Known Issues 
 
-1. Graph is a bit messy when the person has grandchildren. It needs to be fixed.
-2. Privacy part of the index page needs to be prepared.
-3. Fancier images for tree nodes.
+1. Privacy part of the index page needs to be prepared.
+2. Fancier images for tree nodes.

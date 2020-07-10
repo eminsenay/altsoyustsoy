@@ -34,7 +34,7 @@ function DrawFamilyTree(eGovernmentText) {
  * @param {string} holder Id of the html element which will contain the family tree.
  */
 function DrawFamilyTreeInternal(familyTree, holder) {
-    
+
     // check & clear the holder
     let holderElem = document.getElementById(holder);
     if (holderElem === undefined) {
@@ -146,13 +146,13 @@ function GenerateSvg(a) {
         const member = familyTree[i];
         const box = transparentBoxes[i];
         let boxProps = box.attr(["x", "y", "width", "height"]);
-        
+
         let dataVal = "" + boxProps.x + "_" + boxProps.y;
         box.node.setAttribute("onmouseover", "ShowTooltip(evt, '" + dataVal + "')");
         box.node.setAttribute("onmouseout", "HideTooltip(evt, '" + dataVal + "')");
 
-        DrawTooltip(r, GetTooltipText(member), boxProps.x, boxProps.y, boxProps.width, boxProps.height, 
-                GetTooltipOrientation(member, maxX, maxY), true); 
+        DrawTooltip(r, GetTooltipText(member), boxProps.x, boxProps.y, boxProps.width, boxProps.height,
+            GetTooltipOrientation(member, maxX, maxY), true);
     }
 
     let svgOutput = r.toSVG();
@@ -163,8 +163,8 @@ function GenerateSvg(a) {
     }
     a.download = fileName;
     a.type = 'image/svg+xml';
-    let blob = new Blob([svgOutput], {"type": "image/svg+xml"});
-    var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL || function(){};
+    let blob = new Blob([svgOutput], { "type": "image/svg+xml" });
+    var createObjectURL = (window.URL || window.webkitURL || {}).createObjectURL || function () { };
     a.href = createObjectURL(blob);
 }
 
@@ -179,18 +179,32 @@ function FindCoordinates(familyTree) {
 
     // find descendants who don't have any children
     var people = familyTree.filter(x => (x.Children === undefined || x.Children.length == 0) &&
-        (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı") || 
-        x.YakinlikDerecesi.startsWith("kendisi") || x.YakinlikDerecesi.startsWith("torunu")));
+        (x.YakinlikDerecesi.startsWith("oğlu") || x.YakinlikDerecesi.startsWith("kızı") ||
+            x.YakinlikDerecesi.startsWith("kendisi") || x.YakinlikDerecesi.startsWith("torunu")));
 
     // use the people as a stack. Depth-first traverse, first fathers until no more father is to be found, 
     // then spouses of the fathers.
     while (people.length > 0) {
         let nextPerson = people.pop();
+        if (nextPerson.IsVisited == true) {
+            continue;
+        }
 
         if (nextPerson.Baba !== undefined) {
             if (nextPerson.Baba.IsVisited == true) {
                 let childIndex = nextPerson.Baba.Children.indexOf(nextPerson);
-                nextPerson.X = childIndex == 0 ? nextPerson.Baba.X : nextXIndex++;
+                if (childIndex == 0) {
+                    nextPerson.X = nextPerson.Baba.X;
+                }
+                else {
+                    // separate siblings from each other to fit spouses between them
+                    let totalSpouses = 0;
+                    for (let i = 0; i < childIndex; i++) {
+                        const sibling = nextPerson.Baba.Children[i];
+                        totalSpouses += GetSpouses(sibling).length;
+                    }
+                    nextPerson.X = nextPerson.Baba.X + childIndex + totalSpouses;
+                }
                 nextPerson.Y = nextPerson.Baba.Y + 1;
                 nextPerson.IsVisited = true;
                 AddSpouses(nextPerson, people);
@@ -200,8 +214,37 @@ function FindCoordinates(familyTree) {
                 people.push(nextPerson.Baba);
             }
         } else {
-            nextPerson.X = nextXIndex++;
             SetYIndex(nextPerson, numAncestorLayers);
+            // check if this person is a ancestor or descendant
+            // x positions are handled differently in ancestors and descendants.
+            // for ancestors, x position is incremented for each "root" ancestor
+            // for descendants, descendants not having any parents, i.e. spouses, 
+            // are placed next to their partners
+            if (nextPerson.Y < numAncestorLayers) {
+                // ancestor
+                nextPerson.X = nextXIndex++;
+            }
+            else {
+                let spouses = GetSpouses(nextPerson);
+                // here, the things get a bit unclear because of lacking enough example outputs 
+                if (spouses === undefined || spouses.length != 1) {
+                    console.log("Unexpected spouse array. Setting a default X position");
+                    nextPerson.X = nextXIndex++;
+                }
+                else {
+                    let spouse = spouses[0];
+                    if (spouse.IsVisited == true) {
+                        nextPerson.X = spouse.X + GetSpouses(spouse).indexOf(nextPerson) + 1;
+                    } 
+                    else {
+                        // find the X position of the spouse first
+                        people.push(spouse);
+                        // no need to add nextPerson again as it will be added with 
+                        // the AddSpouses at the next call
+                        continue;
+                    }
+                }
+            }
             nextPerson.IsVisited = true;
             AddSpouses(nextPerson, people);
         }
@@ -244,6 +287,45 @@ function AddSpouses(person, people) {
             }
         });
     }
+}
+
+/**
+ * Returns the spouses of the given person.
+ * @param {Object} person Person whose spouses to be found.
+ */
+function GetSpouses(person) {
+    // Count spouses reachable by the children
+    let spouses = new Map();
+    switch (person.Cinsiyet) {
+        case "E":
+            person.Children.forEach(child => {
+                if (child.Anne !== undefined && !(spouses.has(child.Anne))) {
+                    spouses.set(child.Anne, true);
+                }
+            });
+            break;
+
+        case "K":
+            person.Children.forEach(child => {
+                if (child.Baba !== undefined && !(spouses.has(child.Baba))) {
+                    spouses.set(child.Baba, true);
+                }
+            });
+            break;
+
+        default:
+            break;
+    }
+
+    let arr = Array.from(spouses.keys());
+
+    // Get spouses not reachable from the children
+    if (person.OtherSpouses !== undefined) {
+        person.OtherSpouses.forEach(x => {
+            arr.push(x);
+        });
+    }
+    return arr;
 }
 
 /**
@@ -320,7 +402,7 @@ function DrawConnections(familyTree, r) {
         let spouseConnectionDrawn = false;
         if (member.Baba !== undefined) {
             fatherFound = true;
-            r.connection(member.Shape, member.Baba.Shape, "#000", "", true);
+            r.connection(member.Baba.Shape, member.Shape, "#000", "", true);
             spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Baba");
         }
         if (member.Anne !== undefined) {
@@ -328,7 +410,7 @@ function DrawConnections(familyTree, r) {
             if (!fatherFound) {
                 // only connect with mother if the member won't be connected to father.
                 // if it will be connected to father, father will be connected to mother
-                r.connection(member.Shape, member.Anne.Shape, "#000", "", true);
+                r.connection(member.Anne.Shape, member.Shape, "#000", "", true);
             }
             spouseConnectionDrawn |= DrawConnectionWithOtherSpouses(r, member, "Anne");
         }
@@ -420,7 +502,7 @@ function GetTooltipText(person) {
 function GetTooltipOrientation(person, maxX, maxY) {
     let leftRight = person.X >= maxX - 1 ? "l" : "r";
     let topBottom = person.Y >= maxY - 1 ? "t" : "b";
-    return topBottom + leftRight;   
+    return topBottom + leftRight;
 }
 
 /**
