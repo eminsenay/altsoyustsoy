@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "load-grunt-tasks": "^5.1.0",
-    "lodash": "^4.17.13"
+    "lodash": "^4.17.19"
   }
 }
