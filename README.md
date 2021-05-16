@@ -13,7 +13,9 @@ After displaying your family tree in a tabular form at the e-Government page, co
 - I'm not very fluent in Javascript, so don't be surprised if you see some awkward methods of doing things which are really easy with a different method.
 
 ## Deployment Preparation
-Call "grunt" at the terminal. It uglifies all css and js and then replaces the original references at the project with the uglified ones.
+Call "grunt" at the terminal. It copies all output to the `docs` directory. 
+It can also uglify all css and js and then replace the original references at the project with the uglified ones; however, this is deactivated for now.
+If you wish to activate this, uncomment the corresponding lines in "Gruntfile.js".
 
 ## TODOs & Bugs & Known Issues 
 
